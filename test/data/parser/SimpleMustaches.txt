@@ -1,0 +1,10 @@
+HbFile:SimpleMustaches.hbs
+  HbStatementsImpl(STATEMENTS)
+    HbSimpleMustacheImpl(MUSTACHE)
+      HbPsiElementImpl([Hb] OPEN)
+        PsiElement([Hb] OPEN)('{{')
+      HbPathImpl(PATH)
+        HbPsiElementImpl([Hb] ID)
+          PsiElement([Hb] ID)('foo')
+      HbPsiElementImpl([Hb] CLOSE)
+        PsiElement([Hb] CLOSE)('}}')
