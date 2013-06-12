@@ -3,10 +3,10 @@ package com.dmarcotte.handlebars.parsing;
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.dmarcotte.handlebars.psi.impl.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.lang.LanguageVersion;
 import com.intellij.lang.ParserDefinition;
 import com.intellij.lang.PsiParser;
 import com.intellij.lexer.Lexer;
-import com.intellij.openapi.module.Module;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.FileViewProvider;
 import com.intellij.psi.PsiElement;
@@ -17,11 +17,11 @@ import org.jetbrains.annotations.NotNull;
 
 public class HbParseDefinition implements ParserDefinition {
   @NotNull
-  public Lexer createLexer(Project project, Module module) {
+  public Lexer createLexer(Project project, LanguageVersion languageVersion) {
     return new HbLexer();
   }
 
-  public PsiParser createParser(Project project) {
+  public PsiParser createParser(Project project, LanguageVersion languageVersion) {
     return new HbParser();
   }
 
