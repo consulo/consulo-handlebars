@@ -4,9 +4,7 @@ import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.exception.ShouldNotHappenException;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.psi.tree.IElementType;
-
-import java.util.HashSet;
-import java.util.Set;
+import com.intellij.psi.tree.TokenSet;
 
 import static com.dmarcotte.handlebars.parsing.HbTokenTypes.*;
 
@@ -24,18 +22,7 @@ class HbParsing {
 
   // the set of tokens which, if we encounter them while in a bad state, we'll try to
   // resume parsing from them
-  private static final Set<IElementType> RECOVERY_SET;
-
-  static {
-    RECOVERY_SET = new HashSet<IElementType>();
-    RECOVERY_SET.add(OPEN);
-    RECOVERY_SET.add(OPEN_BLOCK);
-    RECOVERY_SET.add(OPEN_ENDBLOCK);
-    RECOVERY_SET.add(OPEN_INVERSE);
-    RECOVERY_SET.add(OPEN_PARTIAL);
-    RECOVERY_SET.add(OPEN_UNESCAPED);
-    RECOVERY_SET.add(CONTENT);
-  }
+  private static final TokenSet RECOVERY_SET = TokenSet.create(OPEN, OPEN_BLOCK, OPEN_ENDBLOCK, OPEN_INVERSE, OPEN_PARTIAL, OPEN_UNESCAPED, CONTENT);
 
   public HbParsing(final PsiBuilder builder) {
     this.builder = builder;
