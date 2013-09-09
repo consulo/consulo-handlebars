@@ -1,7 +1,6 @@
 package com.dmarcotte.handlebars.editor.folding;
 
 import com.dmarcotte.handlebars.util.HbTestUtils;
-import com.intellij.testFramework.PlatformTestCase;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 
 import java.io.File;
@@ -10,7 +9,6 @@ public class HbFoldingBuilderTest extends LightPlatformCodeInsightFixtureTestCas
   private static final String TEST_DATA_PATH = new File(HbTestUtils.BASE_TEST_DATA_PATH, "folding").getAbsolutePath();
 
   public HbFoldingBuilderTest() {
-    PlatformTestCase.initPlatformLangPrefix();
   }
 
   public void testFoldsWithUnclosedBlocks() {

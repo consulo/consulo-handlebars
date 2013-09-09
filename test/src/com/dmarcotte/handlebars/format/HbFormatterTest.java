@@ -17,7 +17,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiManager;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import com.intellij.testFramework.PlatformTestCase;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 import com.intellij.util.IncorrectOperationException;
 import org.jetbrains.annotations.NonNls;
@@ -33,7 +32,6 @@ public abstract class HbFormatterTest extends LightPlatformCodeInsightFixtureTes
   private FormatterTestSettings formatterTestSettings;
 
   protected HbFormatterTest() {
-    PlatformTestCase.initPlatformLangPrefix();
   }
 
   @Override
