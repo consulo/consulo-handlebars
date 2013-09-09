@@ -74,12 +74,12 @@ public abstract class HbFormatterTest extends LightPlatformCodeInsightFixtureTes
    * @throws Exception
    */
   void doFileBasedTest(@NonNls String fileNameBefore) throws Exception {
-    doFileBasedTest(fileNameBefore, HbLanguage.getDefaultTemplateLang());
+    doFileBasedTest(fileNameBefore, HbLanguage.getDefaultTemplateFileType());
   }
 
   /**
    * Specialization of {@link #doFileBasedTest(String)} which adds the option of specifying a templated language
-   * other than {@link com.dmarcotte.handlebars.HbLanguage#getDefaultTemplateLang()}
+   * other than {@link com.dmarcotte.handlebars.HbLanguage#getDefaultTemplateFileType()}
    *
    * @param fileNameBefore           The name of the file to test
    * @param templateDataLanguageType The LanguageFileType of the templated file
@@ -90,7 +90,7 @@ public abstract class HbFormatterTest extends LightPlatformCodeInsightFixtureTes
   }
 
   void doStringBasedTest(@NonNls final String text, @NonNls String textAfter) throws IncorrectOperationException {
-    doTextTest(text, textAfter, HbLanguage.getDefaultTemplateLang());
+    doTextTest(text, textAfter, HbLanguage.getDefaultTemplateFileType());
   }
 
   private abstract static class FormatRunnableFactory {

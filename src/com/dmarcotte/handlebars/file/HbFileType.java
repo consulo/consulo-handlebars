@@ -87,7 +87,7 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
     }
 
     if (language == null || associatedFileType == null) {
-      associatedFileType = HbLanguage.getDefaultTemplateLang();
+      associatedFileType = HbLanguage.getDefaultTemplateFileType();
     }
     return associatedFileType;
   }

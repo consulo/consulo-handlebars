@@ -44,7 +44,7 @@ public class HbCommenter implements Commenter {
   private Commenter getCommenter() {
     Language commenterLanguage = HbConfig.getCommenterLanguage();
     if (commenterLanguage == null) {
-      commenterLanguage = HbLanguage.getDefaultTemplateLang().getLanguage();
+      commenterLanguage = HbLanguage.getDefaultTemplateFileType().getLanguage();
     }
     else if (commenterLanguage.getID().equals(HbLanguage.INSTANCE.getID())) {
       return ourHandlebarsCommenter;

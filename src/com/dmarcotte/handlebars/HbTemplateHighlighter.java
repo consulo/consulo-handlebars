@@ -6,7 +6,7 @@ import com.intellij.openapi.editor.colors.EditorColorsScheme;
 import com.intellij.openapi.editor.ex.util.LayerDescriptor;
 import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.fileTypes.StdFileTypes;
+import com.intellij.openapi.fileTypes.PlainTextFileType;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
@@ -22,12 +22,12 @@ public class HbTemplateHighlighter extends LayeredLexerEditorHighlighter {
     // highlighter for outer lang
     FileType type = null;
     if (project == null || virtualFile == null) {
-      type = StdFileTypes.PLAIN_TEXT;
+      type = PlainTextFileType.INSTANCE;
     }
     else {
       Language language = TemplateDataLanguageMappings.getInstance(project).getMapping(virtualFile);
       if (language != null) type = language.getAssociatedFileType();
-      if (type == null) type = HbLanguage.getDefaultTemplateLang();
+      if (type == null) type = HbLanguage.getDefaultTemplateFileType();
     }
     @SuppressWarnings("deprecation") // deprecated in IDEA 12, still needed in IDEA 11 TODO remove when IDEA 11 support is dropped
       SyntaxHighlighter outerHighlighter = SyntaxHighlighter.PROVIDER.create(type, project, virtualFile);

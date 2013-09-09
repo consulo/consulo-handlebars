@@ -38,7 +38,7 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
   private Language getTemplateDataLanguage(PsiManager manager, VirtualFile file) {
     Language dataLang = TemplateDataLanguageMappings.getInstance(manager.getProject()).getMapping(file);
     if (dataLang == null) {
-      dataLang = HbLanguage.getDefaultTemplateLang().getLanguage();
+      dataLang = HbLanguage.getDefaultTemplateFileType().getLanguage();
     }
 
     Language substituteLang = LanguageSubstitutors.INSTANCE.substituteLanguage(dataLang, file, manager.getProject());
