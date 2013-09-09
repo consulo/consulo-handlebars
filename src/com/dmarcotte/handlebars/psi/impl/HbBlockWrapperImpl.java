@@ -5,29 +5,20 @@ import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.util.PsiTreeUtil;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import javax.swing.*;
 
 public class HbBlockWrapperImpl extends HbPsiElementImpl implements HbBlockWrapper {
-  public HbBlockWrapperImpl(@NotNull ASTNode astNode) {
-    super(astNode);
-  }
+	public HbBlockWrapperImpl(@NotNull ASTNode astNode) {
+		super(astNode);
+	}
 
-  @Override
-  public String getName() {
-    HbOpenBlockMustache openBlockMustache = getHbOpenBlockMustache();
-    return openBlockMustache == null ? null : openBlockMustache.getName();
-  }
+	@Override
+	public String getName() {
+		HbOpenBlockMustache openBlockMustache = getInsideElement();
+		return openBlockMustache == null ? null : openBlockMustache.getName();
+	}
 
-  @Nullable
-  @Override
-  public Icon getIcon(@IconFlags int flags) {
-    HbOpenBlockMustache openBlockMustache = getHbOpenBlockMustache();
-    return openBlockMustache == null ? null : openBlockMustache.getIcon(0);
-  }
-
-  private HbOpenBlockMustache getHbOpenBlockMustache() {
-    return PsiTreeUtil.findChildOfType(this, HbOpenBlockMustache.class);
-  }
+	@Override
+	public HbOpenBlockMustache getInsideElement() {
+		return PsiTreeUtil.findChildOfType(this, HbOpenBlockMustache.class);
+	}
 }

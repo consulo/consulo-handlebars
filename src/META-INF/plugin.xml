@@ -9,10 +9,11 @@
   <category>HTML/JavaScript Development</category>
   <version>0.8</version>
   <depends config-file="com.intellij.xml.xml">com.intellij.xml</depends>
-  <vendor logo="/icons/handlebars_icon.png" url="https://github.com/dmarcotte">dmarcotte</vendor>
+  <vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
 
   <extensions defaultExtensionNs="com.intellij">
     <errorHandler implementation="com.intellij.diagnostic.ITNReporter"/>
+	<iconDescriptorUpdater implementation="com.dmarcotte.handlebars.HbIconDescriptorUpdater" />
     <fileTypeFactory implementation="com.dmarcotte.handlebars.file.HbFileTypeFactory"/>
     <lang.parserDefinition language="Handlebars" implementationClass="com.dmarcotte.handlebars.parsing.HbParseDefinition"/>
     <lang.formatter language="Handlebars" implementationClass="com.dmarcotte.handlebars.format.HbFormattingModelBuilder"/>

@@ -2,6 +2,7 @@ package com.dmarcotte.handlebars.structure;
 
 import com.dmarcotte.handlebars.psi.HbPsiElement;
 import com.dmarcotte.handlebars.psi.HbStatements;
+import com.intellij.ide.IconDescriptorUpdaters;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
 import com.intellij.psi.PsiElement;
@@ -60,6 +61,6 @@ class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
 
   @Override
   public Icon getIcon(boolean open) {
-    return myElement.getIcon(0);
+    return IconDescriptorUpdaters.getIcon(myElement, 0);
   }
 }

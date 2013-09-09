@@ -10,7 +10,6 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.openapi.util.Pair;
 import com.intellij.psi.tree.IElementType;
-import com.intellij.ui.JBColor;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -71,8 +70,7 @@ public class HbHighlighter extends SyntaxHighlighterBase {
 
   @SuppressWarnings("UseJBColor")
   private static final TextAttributesKey ESCAPE = TextAttributesKey.createTextAttributesKey(
-    "HANDLEBARS.ESCAPE",
-    new TextAttributes(JBColor.BLUE, null, null, null, 0)
+    "HANDLEBARS.ESCAPE", DefaultLanguageHighlighterColors.VALID_STRING_ESCAPE
   );
 
   static {
