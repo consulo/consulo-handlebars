@@ -6,7 +6,7 @@
       <a href="http://handlebarsjs.com/">Handlebars</a> and <a href="http://mustache.github.com/">Mustache</a> template support
     ]]>
   </description>
-  <category>HTML/JavaScript Development</category>
+  <category>Template Languages</category>
   <version>0.8</version>
   <depends config-file="com.intellij.xml.xml">com.intellij.xml</depends>
   <vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
