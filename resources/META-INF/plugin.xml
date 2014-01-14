@@ -7,7 +7,7 @@
     ]]>
   </description>
   <category>Template Languages</category>
-  <version>0.8</version>
+  <version>SNAPSHOT</version>
   <depends config-file="com.intellij.xml.xml">com.intellij.xml</depends>
   <vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
 

@@ -1,5 +1,8 @@
 package com.dmarcotte.handlebars.format;
 
+import java.io.File;
+
+import org.jetbrains.annotations.NonNls;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.util.HbTestUtils;
 import com.intellij.openapi.application.ApplicationManager;
@@ -19,9 +22,6 @@ import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 import com.intellij.util.IncorrectOperationException;
-import org.jetbrains.annotations.NonNls;
-
-import java.io.File;
 
 /**
  * Base class for Handlebars formatter tests.  Based on com.intellij.psi.formatter.java.AbstractJavaFormatterTest.
@@ -207,7 +207,7 @@ public abstract class HbFormatterTest extends LightPlatformCodeInsightFixtureTes
         ApplicationManager.getApplication().runWriteAction(new Runnable() {
           @Override
           public void run() {
-            ((DocumentImpl)doc).stripTrailingSpaces();
+            ((DocumentImpl)doc).stripTrailingSpaces(getProject());
           }
         });
       }
