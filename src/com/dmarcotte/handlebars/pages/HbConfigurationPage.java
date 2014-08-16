@@ -1,5 +1,18 @@
 package com.dmarcotte.handlebars.pages;
 
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JList;
+import javax.swing.JPanel;
+
+import org.jetbrains.annotations.Nls;
+import org.jetbrains.annotations.NotNull;
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
@@ -8,13 +21,6 @@ import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.NotNull;
-
-import javax.swing.*;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class HbConfigurationPage implements SearchableConfigurable {
   private JCheckBox myAutoGenerateClosingTagCheckBox;
@@ -37,11 +43,6 @@ public class HbConfigurationPage implements SearchableConfigurable {
   @Override
   public String getDisplayName() {
     return HbBundle.message("hb.pages.options.title");
-  }
-
-  @SuppressWarnings({"UnusedDeclaration", "SameReturnValue"}) // this  can probably be deleted eventually; IDEA 11 expects it to be here
-  public Icon getIcon() {
-    return null;
   }
 
   @Override
