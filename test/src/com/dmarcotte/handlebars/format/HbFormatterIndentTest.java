@@ -1,7 +1,7 @@
 package com.dmarcotte.handlebars.format;
 
 import com.dmarcotte.handlebars.config.HbConfig;
-import com.intellij.openapi.fileTypes.StdFileTypes;
+import com.intellij.ide.highlighter.HtmlFileType;
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
 
 public class HbFormatterIndentTest extends HbFormatterTest {
@@ -35,8 +35,8 @@ public class HbFormatterIndentTest extends HbFormatterTest {
     int previousGeneralIndent = CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(null).INDENT_SIZE;
     CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(null).INDENT_SIZE = 2;
 
-    int previousHtmlIndent = CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(StdFileTypes.HTML).INDENT_SIZE;
-    CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(StdFileTypes.HTML).INDENT_SIZE = 2;
+    int previousHtmlIndent = CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(HtmlFileType.INSTANCE).INDENT_SIZE;
+    CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(HtmlFileType.INSTANCE).INDENT_SIZE = 2;
 
     doStringBasedTest(
 
@@ -54,7 +54,7 @@ public class HbFormatterIndentTest extends HbFormatterTest {
     );
 
     CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(null).INDENT_SIZE = previousGeneralIndent;
-    CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(StdFileTypes.HTML).INDENT_SIZE = previousHtmlIndent;
+    CodeStyleSettingsManager.getSettings(getProject()).getIndentOptions(HtmlFileType.INSTANCE).INDENT_SIZE = previousHtmlIndent;
   }
 
   public void testSimpleStache() {
