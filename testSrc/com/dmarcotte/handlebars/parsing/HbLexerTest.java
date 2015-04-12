@@ -1,14 +1,15 @@
 package com.dmarcotte.handlebars.parsing;
 
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.testFramework.PlatformLiteFixture;
-import junit.framework.Assert;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class HbLexerTest extends PlatformLiteFixture {
+import com.intellij.lexer.Lexer;
+import com.intellij.psi.tree.IElementType;
+import com.intellij.testFramework.UsefulTestCase;
+import junit.framework.Assert;
+
+public abstract class HbLexerTest extends UsefulTestCase
+{
 
   private Lexer _lexer;
 
