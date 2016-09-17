@@ -1,6 +1,6 @@
 package com.dmarcotte.handlebars.parsing;
 
-import com.intellij.testFramework.ParsingTestCase;
+import consulo.testFramework.ParsingTestCase;
 
 /**
  * ParsingTestCase test are created by placing a MyTestName.hbs file in the test/data/parsing directory with the syntax
