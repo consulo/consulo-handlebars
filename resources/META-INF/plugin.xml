@@ -12,8 +12,7 @@
 	<vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
 
 	<extensions defaultExtensionNs="com.intellij">
-		<errorHandler implementation="com.intellij.diagnostic.ITNReporter"/>
-		<iconDescriptorUpdater implementation="com.dmarcotte.handlebars.HbIconDescriptorUpdater"/>
+		<iconDescriptorUpdater implementation="consulo.handlebars.HbIconDescriptorUpdater"/>
 		<fileTypeFactory implementation="com.dmarcotte.handlebars.file.HbFileTypeFactory"/>
 		<lang.parserDefinition language="Handlebars" implementationClass="com.dmarcotte.handlebars.parsing.HbParseDefinition"/>
 		<lang.formatter language="Handlebars" implementationClass="com.dmarcotte.handlebars.format.HbFormattingModelBuilder"/>

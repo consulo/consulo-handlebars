@@ -1,6 +1,7 @@
-package com.dmarcotte.handlebars;
+package consulo.handlebars;
 
 import org.jetbrains.annotations.NotNull;
+import com.dmarcotte.handlebars.HbIcons;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.HbBlockWrapper;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
@@ -9,6 +10,7 @@ import com.dmarcotte.handlebars.psi.HbPartial;
 import com.dmarcotte.handlebars.psi.HbSimpleInverse;
 import com.dmarcotte.handlebars.psi.HbSimpleMustache;
 import com.intellij.psi.PsiElement;
+import consulo.annotations.RequiredReadAction;
 import consulo.ide.IconDescriptor;
 import consulo.ide.IconDescriptorUpdater;
 
@@ -18,6 +20,7 @@ import consulo.ide.IconDescriptorUpdater;
  */
 public class HbIconDescriptorUpdater implements IconDescriptorUpdater
 {
+	@RequiredReadAction
 	@Override
 	public void updateIcon(@NotNull IconDescriptor iconDescriptor, @NotNull PsiElement element, int flags)
 	{
