@@ -13,7 +13,7 @@ import com.dmarcotte.handlebars.psi.HbStatements;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
 import com.intellij.psi.PsiElement;
-import com.intellij.util.ReflectionCache;
+import com.intellij.util.ReflectionUtil;
 import consulo.ide.IconDescriptorUpdaters;
 
 class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
@@ -45,7 +45,7 @@ class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
       }
 
       for (Class suitableClass : HbStructureViewModel.ourSuitableClasses) {
-        if (ReflectionCache.isAssignable(suitableClass, childElement.getClass())) {
+        if (ReflectionUtil.isAssignable(suitableClass, childElement.getClass())) {
           children.add(new HbTreeElement((HbPsiElement)childElement));
           break;
         }
