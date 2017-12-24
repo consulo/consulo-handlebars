@@ -1,1 +1,1 @@
-![Build Status](http://must-be.org/vulcan/statusImage?name=consulo-handlebars)
+[![Build Status](https://ci.consulo.io/job/consulo-handlebars/badge/icon)](https://ci.consulo.io/job/consulo-handlebars/)

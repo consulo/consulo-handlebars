@@ -1,33 +1,4 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-
-# OS or Editor folders
-.DS_Store
-.cache
-.project
-.settings
-.tmproj
-nbproject
-Thumbs.db
-
-# Folders to ignore
-.hg
-.svn
-.CVS
-intermediate
-publish
-target
-/.idea/workspace.xml
+/.consulo
+!/.consulo/codeStyleSettings.xml
 /out
-/.consulo/workspace.xml
-/dep
-/.consulo/sandbox
+/target
