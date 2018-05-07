@@ -11,6 +11,7 @@ import com.intellij.openapi.fileTypes.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
+import consulo.ui.image.Image;
 import org.jetbrains.annotations.NonNls;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -38,7 +39,7 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
   }
 
   @Nonnull
-  public String getName() {
+  public String getId() {
     return "Handlebars/Mustache";
   }
 
@@ -52,7 +53,7 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
     return DEFAULT_EXTENSION;
   }
 
-  public Icon getIcon() {
+  public Image getIcon() {
     return HbIcons.FILE_ICON;
   }
 

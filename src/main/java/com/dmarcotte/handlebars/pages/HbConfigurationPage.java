@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.annotation.Nonnull;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -12,7 +13,6 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import org.jetbrains.annotations.Nls;
-import javax.annotation.Nonnull;
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
@@ -21,6 +21,7 @@ import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.options.ConfigurationException;
 import com.intellij.openapi.options.SearchableConfigurable;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
+import consulo.awt.TargetAWT;
 
 public class HbConfigurationPage implements SearchableConfigurable {
   private JCheckBox myAutoGenerateClosingTagCheckBox;
@@ -102,7 +103,7 @@ public class HbConfigurationPage implements SearchableConfigurable {
         if (value != null) {
           final FileType type = ((Language)value).getAssociatedFileType();
           if (type != null) {
-            setIcon(type.getIcon());
+            setIcon(TargetAWT.to(type.getIcon()));
           }
         }
       }

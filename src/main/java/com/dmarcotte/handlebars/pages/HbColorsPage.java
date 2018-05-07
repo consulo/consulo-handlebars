@@ -33,10 +33,6 @@ public class HbColorsPage implements ColorSettingsPage {
     return HbBundle.message("hb.files.file.type.description");
   }
 
-  public Icon getIcon() {
-    return HbIcons.FILE_ICON;
-  }
-
   @Nonnull
   public AttributesDescriptor[] getAttributeDescriptors() {
     return ATTRS;
