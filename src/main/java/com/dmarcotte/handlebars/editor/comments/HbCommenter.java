@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.config.HbConfig;
 import com.intellij.lang.Commenter;
 import com.intellij.lang.Language;
 import com.intellij.lang.LanguageCommenters;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public class HbCommenter implements Commenter {
 

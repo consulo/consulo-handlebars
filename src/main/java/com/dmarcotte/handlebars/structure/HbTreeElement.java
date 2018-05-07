@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.swing.Icon;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import com.dmarcotte.handlebars.psi.HbPsiElement;
 import com.dmarcotte.handlebars.psi.HbStatements;
 import com.intellij.ide.structureView.StructureViewTreeElement;
@@ -25,7 +25,7 @@ class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
     myElement = psiElement;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Collection<StructureViewTreeElement> getChildrenBase() {
     return getStructureViewTreeElements(myElement);

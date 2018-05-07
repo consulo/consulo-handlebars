@@ -1,10 +1,11 @@
 package com.dmarcotte.handlebars.parsing;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.intellij.psi.tree.IElementType;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
 
 class HbElementType extends IElementType {
   private final String _parseExpectedMessageKey;
@@ -13,7 +14,7 @@ class HbElementType extends IElementType {
    * @param parseExpectedMessageKey Key to the {@link HbBundle} message to show the user when the parser
    *                                expected this token, but found something else.
    */
-  public HbElementType(@NotNull @NonNls String debugName, @NotNull @NonNls String parseExpectedMessageKey) {
+  public HbElementType(@Nonnull @NonNls String debugName, @Nonnull @NonNls String parseExpectedMessageKey) {
     super(debugName, HbLanguage.INSTANCE);
     _parseExpectedMessageKey = parseExpectedMessageKey;
   }

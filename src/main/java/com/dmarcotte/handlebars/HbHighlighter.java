@@ -10,7 +10,7 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.openapi.util.Pair;
 import com.intellij.psi.tree.IElementType;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -23,7 +23,7 @@ public class HbHighlighter extends SyntaxHighlighterBase {
   private static final Map<IElementType, TextAttributesKey> keys1;
   private static final Map<IElementType, TextAttributesKey> keys2;
 
-  @NotNull
+  @Nonnull
   public Lexer getHighlightingLexer() {
     return new HbLexer();
   }
@@ -99,7 +99,7 @@ public class HbHighlighter extends SyntaxHighlighterBase {
     keys1.put(HbTokenTypes.ESCAPE_CHAR, ESCAPE);
   }
 
-  @NotNull
+  @Nonnull
   public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
     return pack(keys1.get(tokenType), keys2.get(tokenType));
   }

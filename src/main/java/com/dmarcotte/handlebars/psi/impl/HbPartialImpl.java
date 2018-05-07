@@ -1,13 +1,14 @@
 package com.dmarcotte.handlebars.psi.impl;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.psi.HbPartial;
 import com.dmarcotte.handlebars.psi.HbPartialName;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
 
 public class HbPartialImpl extends HbMustacheImpl implements HbPartial {
-  public HbPartialImpl(@NotNull ASTNode astNode) {
+  public HbPartialImpl(@Nonnull ASTNode astNode) {
     super(astNode);
   }
 

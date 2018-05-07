@@ -1,7 +1,7 @@
 package com.dmarcotte.handlebars.editor.comments;
 
 import com.intellij.lang.Commenter;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 /**
  * Commenter for native Handlebars comments: <pre>{{!-- comment --}}</pre>

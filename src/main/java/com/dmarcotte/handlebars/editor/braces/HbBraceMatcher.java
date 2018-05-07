@@ -6,8 +6,8 @@ import com.intellij.openapi.editor.highlighter.HighlighterIterator;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.tree.IElementType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -110,12 +110,12 @@ public class HbBraceMatcher implements BraceMatcher {
 
   @Nullable
   @Override
-  public IElementType getOppositeBraceTokenType(@NotNull IElementType type) {
+  public IElementType getOppositeBraceTokenType(@Nonnull IElementType type) {
     return null;
   }
 
   @Override
-  public boolean isPairedBracesAllowedBeforeType(@NotNull IElementType lbraceType, @Nullable IElementType contextType) {
+  public boolean isPairedBracesAllowedBeforeType(@Nonnull IElementType lbraceType, @Nullable IElementType contextType) {
     return true;
   }
 

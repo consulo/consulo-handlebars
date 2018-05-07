@@ -1,6 +1,7 @@
 package com.dmarcotte.handlebars.parsing;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.dmarcotte.handlebars.psi.impl.*;
 import com.intellij.lang.ASTNode;
@@ -15,7 +16,7 @@ import com.intellij.psi.tree.TokenSet;
 import consulo.lang.LanguageVersion;
 
 public class HbParseDefinition implements ParserDefinition {
-  @NotNull
+  @Nonnull
   public Lexer createLexer(LanguageVersion languageVersion) {
     return new HbLexer();
   }
@@ -28,22 +29,22 @@ public class HbParseDefinition implements ParserDefinition {
     return HbTokenTypes.FILE;
   }
 
-  @NotNull
+  @Nonnull
   public TokenSet getWhitespaceTokens(LanguageVersion languageVersion) {
     return HbTokenTypes.WHITESPACES;
   }
 
-  @NotNull
+  @Nonnull
   public TokenSet getCommentTokens(LanguageVersion languageVersion) {
     return HbTokenTypes.COMMENTS;
   }
 
-  @NotNull
+  @Nonnull
   public TokenSet getStringLiteralElements(LanguageVersion languageVersion) {
     return HbTokenTypes.STRING_LITERALS;
   }
 
-  @NotNull
+  @Nonnull
   public PsiElement createElement(ASTNode node) {
     if (node.getElementType() == HbTokenTypes.BLOCK_WRAPPER) {
       return new HbBlockWrapperImpl(node);

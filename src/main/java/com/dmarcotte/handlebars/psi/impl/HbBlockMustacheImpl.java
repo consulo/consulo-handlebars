@@ -4,11 +4,11 @@ import com.dmarcotte.handlebars.psi.HbBlockMustache;
 import com.dmarcotte.handlebars.psi.HbPath;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 abstract class HbBlockMustacheImpl extends HbPsiElementImpl implements HbBlockMustache {
-  protected HbBlockMustacheImpl(@NotNull ASTNode astNode) {
+  protected HbBlockMustacheImpl(@Nonnull ASTNode astNode) {
     super(astNode);
   }
 

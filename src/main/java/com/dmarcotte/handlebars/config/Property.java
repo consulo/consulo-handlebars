@@ -1,14 +1,15 @@
 package com.dmarcotte.handlebars.config;
 
+import javax.annotation.Nonnull;
+
 import com.intellij.lang.html.HTMLLanguage;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Formalizes the properties which we will persist using {@link com.intellij.ide.util.PropertiesComponent}
  */
 enum Property {
   AUTO_GENERATE_CLOSE_TAG {
-    @NotNull
+    @Nonnull
     @Override
     public String getStringName() {
       // please excuse the "disabled" in this name.  This is an artifact from an earlier approach
@@ -16,7 +17,7 @@ enum Property {
       return "HbDisableAutoGenerateCloseTag";
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getDefault() {
       return ENABLED;
@@ -24,13 +25,13 @@ enum Property {
   },
 
   FORMATTER {
-    @NotNull
+    @Nonnull
     @Override
     public String getStringName() {
       return "HbFormatter";
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getDefault() {
       return ENABLED;
@@ -38,13 +39,13 @@ enum Property {
   },
 
   AUTO_COLLAPSE_BLOCKS {
-    @NotNull
+    @Nonnull
     @Override
     public String getStringName() {
       return "HbAutoCollapseBlocks";
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getDefault() {
       return DISABLED;
@@ -52,13 +53,13 @@ enum Property {
   },
 
   COMMENTER_LANGUAGE_ID {
-    @NotNull
+    @Nonnull
     @Override
     public String getStringName() {
       return "HbCommenterLanguageId";
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public String getDefault() {
       return HTMLLanguage.INSTANCE.getID();
@@ -75,12 +76,12 @@ enum Property {
    * <p/>
    * IMPORTANT: these should probably never change so that we don't lose a user's preferences between releases.
    */
-  @NotNull
+  @Nonnull
   public abstract String getStringName();
 
   /**
    * The default/initial value for a user
    */
-  @NotNull
+  @Nonnull
   public abstract String getDefault();
 }

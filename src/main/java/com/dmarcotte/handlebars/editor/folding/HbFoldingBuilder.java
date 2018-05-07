@@ -12,17 +12,17 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.project.DumbAware;
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
 
-  @NotNull
+  @Nonnull
   @Override
-  public FoldingDescriptor[] buildFoldRegions(@NotNull ASTNode node, @NotNull Document document) {
+  public FoldingDescriptor[] buildFoldRegions(@Nonnull ASTNode node, @Nonnull Document document) {
     List<FoldingDescriptor> descriptors = new ArrayList<FoldingDescriptor>();
     appendDescriptors(node.getPsi(), descriptors, document);
     return descriptors.toArray(new FoldingDescriptor[descriptors.size()]);
@@ -116,12 +116,12 @@ public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
 
   @Nullable
   @Override
-  public String getPlaceholderText(@NotNull ASTNode node) {
+  public String getPlaceholderText(@Nonnull ASTNode node) {
     return "...";
   }
 
   @Override
-  public boolean isCollapsedByDefault(@NotNull ASTNode node) {
+  public boolean isCollapsedByDefault(@Nonnull ASTNode node) {
     return HbConfig.isAutoCollapseBlocksEnabled();
   }
 

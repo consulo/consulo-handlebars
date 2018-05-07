@@ -1,7 +1,8 @@
 package com.dmarcotte.handlebars.structure;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.intellij.ide.structureView.StructureViewBuilder;
 import com.intellij.ide.structureView.StructureViewModel;
@@ -18,7 +19,7 @@ public class HbStructureViewFactory implements PsiStructureViewFactory
 	{
 		return new TreeBasedStructureViewBuilder()
 		{
-			@NotNull
+			@Nonnull
 			@Override
 			public StructureViewModel createStructureViewModel(Editor editor)
 			{

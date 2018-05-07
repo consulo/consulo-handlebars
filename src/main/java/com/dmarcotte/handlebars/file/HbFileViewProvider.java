@@ -15,7 +15,7 @@ import com.intellij.psi.templateLanguages.ConfigurableTemplateLanguageFileViewPr
 import com.intellij.psi.templateLanguages.TemplateDataElementType;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import gnu.trove.THashSet;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import java.util.Arrays;
 import java.util.Set;
@@ -51,19 +51,19 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
     return dataLang;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Language getBaseLanguage() {
     return HbLanguage.INSTANCE;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Language getTemplateDataLanguage() {
     return getTemplateDataLanguage(myManager, myFile);
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public Set<Language> getLanguages() {
     return new THashSet<Language>(Arrays.asList(new Language[]{HbLanguage.INSTANCE, getTemplateDataLanguage(myManager, myFile)}));
@@ -75,7 +75,7 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
   }
 
   @Override
-  protected PsiFile createFile(@NotNull Language lang) {
+  protected PsiFile createFile(@Nonnull Language lang) {
     ParserDefinition parserDefinition = LanguageParserDefinitions.INSTANCE.forLanguage(lang);
     if (parserDefinition == null) {
       return null;

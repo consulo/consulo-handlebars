@@ -1,5 +1,7 @@
 package com.dmarcotte.handlebars.editor.actions;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.dmarcotte.handlebars.psi.HbPsiUtil;
 import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
@@ -12,18 +14,17 @@ import com.intellij.openapi.editor.highlighter.HighlighterIterator;
 import com.intellij.openapi.util.Ref;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Handler for custom plugin actions when {@code Enter} is typed by the user
  */
 public class HbEnterHandler extends EnterHandlerDelegateAdapter {
 
-  public Result preprocessEnter(@NotNull final PsiFile file,
-                                @NotNull final Editor editor,
-                                @NotNull final Ref<Integer> caretOffset,
-                                @NotNull final Ref<Integer> caretAdvance,
-                                @NotNull final DataContext dataContext,
+  public Result preprocessEnter(@Nonnull final PsiFile file,
+                                @Nonnull final Editor editor,
+                                @Nonnull final Ref<Integer> caretOffset,
+                                @Nonnull final Ref<Integer> caretAdvance,
+                                @Nonnull final DataContext dataContext,
                                 final EditorActionHandler originalHandler) {
     /**
      * if we are between open and close tags, we ensure the caret ends up in the "logical" place on Enter.

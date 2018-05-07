@@ -15,8 +15,8 @@ import com.intellij.psi.formatter.DocumentBasedFormattingModel;
 import com.intellij.psi.formatter.xml.SyntheticBlock;
 import com.intellij.psi.templateLanguages.SimpleTemplateLanguageFormattingModelBuilder;
 import com.intellij.psi.tree.IElementType;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import java.util.List;
 
@@ -26,11 +26,11 @@ import java.util.List;
  */
 public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBuilder {
   @Override
-  public TemplateLanguageBlock createTemplateLanguageBlock(@NotNull ASTNode node,
+  public TemplateLanguageBlock createTemplateLanguageBlock(@Nonnull ASTNode node,
                                                            @Nullable Wrap wrap,
                                                            @Nullable Alignment alignment,
                                                            @Nullable List<DataLanguageBlockWrapper> foreignChildren,
-                                                           @NotNull CodeStyleSettings codeStyleSettings) {
+                                                           @Nonnull CodeStyleSettings codeStyleSettings) {
     return new HandlebarsBlock(this, codeStyleSettings, node, foreignChildren);
   }
 
@@ -40,7 +40,7 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
    * delegate right back to us to format the HbTokenTypes.OUTER_ELEMENT_TYPE token we tell them to ignore,
    * causing an stack-overflowing loop of polite format-delegation.
    */
-  @NotNull
+  @Nonnull
   public FormattingModel createModel(PsiElement element, CodeStyleSettings settings) {
 
     if (!HbConfig.isFormattingEnabled()) {
@@ -78,8 +78,8 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
 
   private static class HandlebarsBlock extends TemplateLanguageBlock {
 
-    HandlebarsBlock(@NotNull TemplateLanguageBlockFactory blockFactory, @NotNull CodeStyleSettings settings,
-                    @NotNull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
+    HandlebarsBlock(@Nonnull TemplateLanguageBlockFactory blockFactory, @Nonnull CodeStyleSettings settings,
+                    @Nonnull ASTNode node, @Nullable List<DataLanguageBlockWrapper> foreignChildren) {
       super(blockFactory, settings, node, foreignChildren);
     }
 
@@ -209,7 +209,7 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
      * <p/>
      * This method handles indent and alignment on Enter.
      */
-    @NotNull
+    @Nonnull
     @Override
     public ChildAttributes getChildAttributes(int newChildIndex) {
       /**

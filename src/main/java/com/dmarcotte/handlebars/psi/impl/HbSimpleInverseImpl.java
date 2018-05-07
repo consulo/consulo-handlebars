@@ -1,13 +1,14 @@
 package com.dmarcotte.handlebars.psi.impl;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.HbSimpleInverse;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.tree.TokenSet;
-import org.jetbrains.annotations.NotNull;
 
 public class HbSimpleInverseImpl extends HbMustacheImpl implements HbSimpleInverse {
-	public HbSimpleInverseImpl(@NotNull ASTNode astNode) {
+	public HbSimpleInverseImpl(@Nonnull ASTNode astNode) {
 		super(astNode);
 	}
 

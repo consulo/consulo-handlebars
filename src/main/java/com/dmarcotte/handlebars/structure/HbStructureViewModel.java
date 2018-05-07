@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.psi.HbMustache;
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.structureView.TextEditorBasedStructureViewModel;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 class HbStructureViewModel extends TextEditorBasedStructureViewModel {
 
@@ -13,18 +13,18 @@ class HbStructureViewModel extends TextEditorBasedStructureViewModel {
   // classes which we construct structure view nodes for
   static final Class[] ourSuitableClasses = new Class[]{HbBlockWrapper.class, HbMustache.class};
 
-  public HbStructureViewModel(@NotNull HbPsiFile psiFile) {
+  public HbStructureViewModel(@Nonnull HbPsiFile psiFile) {
     super(psiFile);
     this.myFile = psiFile;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   protected Class[] getSuitableClasses() {
     return ourSuitableClasses;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public StructureViewTreeElement getRoot() {
     return new HbTreeElementFile(myFile);

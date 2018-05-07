@@ -1,5 +1,7 @@
 package com.dmarcotte.handlebars.inspections;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.psi.HbBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
@@ -17,7 +19,6 @@ import com.intellij.psi.PsiFile;
 import com.intellij.psi.PsiWhiteSpace;
 import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.util.IncorrectOperationException;
-import org.jetbrains.annotations.NotNull;
 
 class HbBlockMismatchFix implements IntentionAction {
   private final boolean myUpdateOpenMustache;
@@ -35,25 +36,25 @@ class HbBlockMismatchFix implements IntentionAction {
     myOriginalName = originalName;
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getText() {
     return getName();
   }
 
-  @NotNull
+  @Nonnull
   @Override
   public String getFamilyName() {
     return getName();
   }
 
   @Override
-  public boolean isAvailable(@NotNull Project project, Editor editor, PsiFile file) {
+  public boolean isAvailable(@Nonnull Project project, Editor editor, PsiFile file) {
     return true;
   }
 
   @Override
-  public void invoke(@NotNull Project project, Editor editor, PsiFile file)
+  public void invoke(@Nonnull Project project, Editor editor, PsiFile file)
     throws IncorrectOperationException {
     final int offset = editor.getCaretModel().getOffset();
     PsiElement psiElement = file.findElementAt(offset);

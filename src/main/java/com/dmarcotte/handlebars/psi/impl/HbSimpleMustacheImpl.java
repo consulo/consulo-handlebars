@@ -1,15 +1,16 @@
 package com.dmarcotte.handlebars.psi.impl;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.psi.HbData;
 import com.dmarcotte.handlebars.psi.HbPath;
 import com.dmarcotte.handlebars.psi.HbPsiElement;
 import com.dmarcotte.handlebars.psi.HbSimpleMustache;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
 
 public class HbSimpleMustacheImpl extends HbMustacheImpl implements HbSimpleMustache {
-  public HbSimpleMustacheImpl(@NotNull ASTNode astNode) {
+  public HbSimpleMustacheImpl(@Nonnull ASTNode astNode) {
     super(astNode);
   }
 

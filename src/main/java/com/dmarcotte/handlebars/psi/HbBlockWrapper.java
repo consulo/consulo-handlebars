@@ -1,6 +1,6 @@
 package com.dmarcotte.handlebars.psi;
 
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 
 public interface HbBlockWrapper extends HbPsiElement {
 	@Nullable

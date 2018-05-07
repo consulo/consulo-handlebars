@@ -1,5 +1,7 @@
 package com.dmarcotte.handlebars;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -11,11 +13,11 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+
+import javax.annotation.Nullable;
 
 public class HbTemplateHighlighter extends LayeredLexerEditorHighlighter {
-  public HbTemplateHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @NotNull EditorColorsScheme colors) {
+  public HbTemplateHighlighter(@Nullable Project project, @Nullable VirtualFile virtualFile, @Nonnull EditorColorsScheme colors) {
     // create main highlighter
     super(new HbHighlighter(), colors);
 

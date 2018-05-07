@@ -1,7 +1,7 @@
 package com.dmarcotte.handlebars.config;
 
 import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nullable;
 import com.dmarcotte.handlebars.HbBundle;
 import com.intellij.openapi.options.BeanConfigurable;
 import com.intellij.openapi.options.Configurable;

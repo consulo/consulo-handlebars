@@ -2,7 +2,7 @@ package com.dmarcotte.handlebars.completion;
 
 import static com.intellij.patterns.PlatformPatterns.psiElement;
 
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.HbPath;
 import com.intellij.codeInsight.completion.CompletionContributor;
@@ -23,7 +23,7 @@ public class HbKeywordCompletionContributor extends CompletionContributor
 		extend(CompletionType.BASIC, psiElement(HbTokenTypes.ID).withSuperParent(2, psiElement(HbTokenTypes.PATH)), new CompletionProvider()
 		{
 			@Override
-			public void addCompletions(@NotNull CompletionParameters parameters, ProcessingContext context, @NotNull CompletionResultSet result)
+			public void addCompletions(@Nonnull CompletionParameters parameters, ProcessingContext context, @Nonnull CompletionResultSet result)
 			{
 				PsiElement position = PsiTreeUtil.getParentOfType(parameters.getPosition(), HbPath.class);
 				PsiElement prevSibling = position != null ? position.getPrevSibling() : null;

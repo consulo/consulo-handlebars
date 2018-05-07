@@ -1,9 +1,10 @@
 package com.dmarcotte.handlebars;
 
+import javax.annotation.Nullable;
+
 import com.intellij.lang.HtmlScriptContentProvider;
 import com.intellij.lexer.Lexer;
 import com.intellij.psi.tree.IElementType;
-import org.jetbrains.annotations.Nullable;
 
 public class HbScriptContentProvider implements HtmlScriptContentProvider {
   @Override

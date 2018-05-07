@@ -12,8 +12,8 @@ import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import org.jetbrains.annotations.NonNls;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import javax.swing.*;
 import java.nio.charset.Charset;
@@ -29,25 +29,25 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
 
     FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
       public EditorHighlighter getEditorHighlighter(@Nullable Project project,
-                                                    @NotNull FileType fileType,
+                                                    @Nonnull FileType fileType,
                                                     @Nullable VirtualFile virtualFile,
-                                                    @NotNull EditorColorsScheme editorColorsScheme) {
+                                                    @Nonnull EditorColorsScheme editorColorsScheme) {
         return new HbTemplateHighlighter(project, virtualFile, editorColorsScheme);
       }
     });
   }
 
-  @NotNull
+  @Nonnull
   public String getName() {
     return "Handlebars/Mustache";
   }
 
-  @NotNull
+  @Nonnull
   public String getDescription() {
     return HbBundle.message("hb.files.file.type.description");
   }
 
-  @NotNull
+  @Nonnull
   public String getDefaultExtension() {
     return DEFAULT_EXTENSION;
   }
@@ -58,7 +58,7 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
 
   public Charset extractCharsetFromFileContent(@Nullable final Project project,
                                                @Nullable final VirtualFile file,
-                                               @NotNull final String content) {
+                                               @Nonnull final String content) {
     LanguageFileType associatedFileType = getAssociatedFileType(file, project);
 
     if (associatedFileType == null) {

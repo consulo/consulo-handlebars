@@ -2,10 +2,10 @@ package com.dmarcotte.handlebars.psi.impl;
 
 import com.dmarcotte.handlebars.psi.HbData;
 import com.intellij.lang.ASTNode;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 public class HbDataImpl extends HbPsiElementImpl implements HbData {
-  public HbDataImpl(@NotNull ASTNode astNode) {
+  public HbDataImpl(@Nonnull ASTNode astNode) {
     super(astNode);
   }
 

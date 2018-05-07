@@ -4,10 +4,10 @@ import com.dmarcotte.handlebars.psi.HbCloseBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.PsiElement;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 public class HbCloseBlockMustacheImpl extends HbBlockMustacheImpl implements HbCloseBlockMustache {
-  public HbCloseBlockMustacheImpl(@NotNull ASTNode astNode) {
+  public HbCloseBlockMustacheImpl(@Nonnull ASTNode astNode) {
     super(astNode);
   }
 

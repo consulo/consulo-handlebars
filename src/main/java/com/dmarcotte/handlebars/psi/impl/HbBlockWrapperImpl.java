@@ -1,13 +1,14 @@
 package com.dmarcotte.handlebars.psi.impl;
 
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.psi.HbBlockWrapper;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
 
 public class HbBlockWrapperImpl extends HbPsiElementImpl implements HbBlockWrapper {
-	public HbBlockWrapperImpl(@NotNull ASTNode astNode) {
+	public HbBlockWrapperImpl(@Nonnull ASTNode astNode) {
 		super(astNode);
 	}
 

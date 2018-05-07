@@ -18,7 +18,7 @@ import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import com.intellij.psi.codeStyle.CodeStyleManager;
 import com.intellij.psi.util.PsiTreeUtil;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 /**
  * Handler for custom plugin actions on chars typed by the user.  See {@link HbEnterHandler} for custom actions
@@ -27,7 +27,7 @@ import org.jetbrains.annotations.NotNull;
 public class HbTypedHandler extends TypedHandlerDelegate {
 
   @Override
-  public Result charTyped(char c, Project project, Editor editor, @NotNull PsiFile file) {
+  public Result charTyped(char c, Project project, Editor editor, @Nonnull PsiFile file) {
     int offset = editor.getCaretModel().getOffset();
     FileViewProvider provider = file.getViewProvider();
 

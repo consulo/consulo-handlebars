@@ -8,7 +8,7 @@ import com.intellij.openapi.fileTypes.SyntaxHighlighter;
 import com.intellij.openapi.options.colors.AttributesDescriptor;
 import com.intellij.openapi.options.colors.ColorDescriptor;
 import com.intellij.openapi.options.colors.ColorSettingsPage;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 
 import javax.swing.*;
 import java.util.Map;
@@ -28,7 +28,7 @@ public class HbColorsPage implements ColorSettingsPage {
     }
   }
 
-  @NotNull
+  @Nonnull
   public String getDisplayName() {
     return HbBundle.message("hb.files.file.type.description");
   }
@@ -37,22 +37,22 @@ public class HbColorsPage implements ColorSettingsPage {
     return HbIcons.FILE_ICON;
   }
 
-  @NotNull
+  @Nonnull
   public AttributesDescriptor[] getAttributeDescriptors() {
     return ATTRS;
   }
 
-  @NotNull
+  @Nonnull
   public ColorDescriptor[] getColorDescriptors() {
     return ColorDescriptor.EMPTY_ARRAY;
   }
 
-  @NotNull
+  @Nonnull
   public SyntaxHighlighter getHighlighter() {
     return new HbHighlighter();
   }
 
-  @NotNull
+  @Nonnull
   public String getDemoText() {
     return "{{identifier my-val=true my-other-val=42 my-string-val=\"a string\"}}\n" +
            "{{! this is a comment }}\n" +

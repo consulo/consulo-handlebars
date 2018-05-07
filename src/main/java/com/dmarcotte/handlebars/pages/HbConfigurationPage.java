@@ -12,7 +12,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 
 import org.jetbrains.annotations.Nls;
-import org.jetbrains.annotations.NotNull;
+import javax.annotation.Nonnull;
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
@@ -28,7 +28,7 @@ public class HbConfigurationPage implements SearchableConfigurable {
   private JCheckBox myFormattingCheckBox;
   private JComboBox myCommenterLanguage;
 
-  @NotNull
+  @Nonnull
   @Override
   public String getId() {
     return "editor.preferences.handlebarsOptions";
