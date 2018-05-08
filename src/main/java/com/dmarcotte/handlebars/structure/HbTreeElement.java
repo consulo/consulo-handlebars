@@ -14,6 +14,7 @@ import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ReflectionUtil;
+import consulo.awt.TargetAWT;
 import consulo.ide.IconDescriptorUpdaters;
 
 class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
@@ -62,6 +63,6 @@ class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
 
   @Override
   public Icon getIcon(boolean open) {
-    return IconDescriptorUpdaters.getIcon(myElement, 0);
+    return TargetAWT.to(IconDescriptorUpdaters.getIcon(myElement, 0));
   }
 }
