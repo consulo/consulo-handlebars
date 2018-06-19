@@ -16,7 +16,7 @@ public abstract class HbLexerTest extends UsefulTestCase
   @Override
   protected void setUp() throws Exception {
     super.setUp();
-    _lexer = new HbLexer();
+    _lexer = new _HbLexer();
   }
 
   TokenizerResult tokenize(String string) {

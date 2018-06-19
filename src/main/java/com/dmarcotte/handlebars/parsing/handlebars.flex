@@ -5,21 +5,21 @@
 
 package com.dmarcotte.handlebars.parsing;
 
-import com.intellij.lexer.FlexLexer;
+import com.intellij.lexer.LexerBase;
 import com.intellij.psi.tree.IElementType;
 import com.intellij.util.containers.Stack;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.config.HbConfig;
 
-// suppress various warnings/inspections for the generated class
-@SuppressWarnings ({"FieldCanBeLocal", "UnusedDeclaration", "UnusedAssignment", "AccessStaticViaInstance", "MismatchedReadAndWriteOfArray", "WeakerAccess", "SameParameterValue", "CanBeFinal", "SameReturnValue", "RedundantThrows", "ConstantConditions"})
 %%
 
+
+%public
 %class _HbLexer
-%implements FlexLexer
+%extends LexerBase
 %final
 %unicode
-%function advance
+%function advanceImpl
 %type IElementType
 %eof{ return;
 %eof}

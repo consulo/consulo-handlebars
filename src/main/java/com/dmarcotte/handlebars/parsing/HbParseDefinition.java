@@ -18,7 +18,7 @@ import consulo.lang.LanguageVersion;
 public class HbParseDefinition implements ParserDefinition {
   @Nonnull
   public Lexer createLexer(LanguageVersion languageVersion) {
-    return new HbLexer();
+    return new _HbLexer();
   }
 
   public PsiParser createParser(LanguageVersion languageVersion) {

@@ -1,7 +1,13 @@
 package com.dmarcotte.handlebars;
 
-import com.dmarcotte.handlebars.parsing.HbLexer;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.annotation.Nonnull;
+
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
+import com.dmarcotte.handlebars.parsing._HbLexer;
 import com.intellij.lang.annotation.HighlightSeverity;
 import com.intellij.lexer.Lexer;
 import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
@@ -10,11 +16,6 @@ import com.intellij.openapi.editor.markup.TextAttributes;
 import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
 import com.intellij.openapi.util.Pair;
 import com.intellij.psi.tree.IElementType;
-import javax.annotation.Nonnull;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 /**
  * @author max
@@ -25,7 +26,7 @@ public class HbHighlighter extends SyntaxHighlighterBase {
 
   @Nonnull
   public Lexer getHighlightingLexer() {
-    return new HbLexer();
+    return new _HbLexer();
   }
 
   private static final TextAttributesKey MUSTACHES = TextAttributesKey.createTextAttributesKey(
