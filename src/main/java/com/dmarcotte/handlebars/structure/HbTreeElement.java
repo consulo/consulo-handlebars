@@ -4,18 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import javax.swing.Icon;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+
 import com.dmarcotte.handlebars.psi.HbPsiElement;
 import com.dmarcotte.handlebars.psi.HbStatements;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
 import com.intellij.psi.PsiElement;
 import com.intellij.util.ReflectionUtil;
-import consulo.awt.TargetAWT;
 import consulo.ide.IconDescriptorUpdaters;
+import consulo.ui.image.Image;
 
 class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
 
@@ -62,7 +61,7 @@ class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
   }
 
   @Override
-  public Icon getIcon(boolean open) {
-    return TargetAWT.to(IconDescriptorUpdaters.getIcon(myElement, 0));
+  public Image getIcon() {
+    return IconDescriptorUpdaters.getIcon(myElement, 0);
   }
 }
