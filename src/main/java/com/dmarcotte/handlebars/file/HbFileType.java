@@ -1,23 +1,21 @@
 package com.dmarcotte.handlebars.file;
 
+import java.nio.charset.Charset;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+import org.jetbrains.annotations.NonNls;
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbIcons;
 import com.dmarcotte.handlebars.HbLanguage;
-import com.dmarcotte.handlebars.HbTemplateHighlighter;
 import com.intellij.lang.Language;
-import com.intellij.openapi.editor.colors.EditorColorsScheme;
-import com.intellij.openapi.editor.highlighter.EditorHighlighter;
-import com.intellij.openapi.fileTypes.*;
+import com.intellij.openapi.fileTypes.LanguageFileType;
+import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import consulo.ui.image.Image;
-import org.jetbrains.annotations.NonNls;
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import javax.swing.*;
-import java.nio.charset.Charset;
 
 public class HbFileType extends LanguageFileType implements TemplateLanguageFileType {
   public static final LanguageFileType INSTANCE = new HbFileType();
@@ -27,15 +25,6 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
 
   private HbFileType() {
     super(HbLanguage.INSTANCE);
-
-    FileTypeEditorHighlighterProviders.INSTANCE.addExplicitExtension(this, new EditorHighlighterProvider() {
-      public EditorHighlighter getEditorHighlighter(@Nullable Project project,
-                                                    @Nonnull FileType fileType,
-                                                    @Nullable VirtualFile virtualFile,
-                                                    @Nonnull EditorColorsScheme editorColorsScheme) {
-        return new HbTemplateHighlighter(project, virtualFile, editorColorsScheme);
-      }
-    });
   }
 
   @Nonnull
@@ -57,9 +46,10 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
     return HbIcons.FILE_ICON;
   }
 
+  @Override
   public Charset extractCharsetFromFileContent(@Nullable final Project project,
                                                @Nullable final VirtualFile file,
-                                               @Nonnull final String content) {
+                                               @Nonnull final CharSequence content) {
     LanguageFileType associatedFileType = getAssociatedFileType(file, project);
 
     if (associatedFileType == null) {
