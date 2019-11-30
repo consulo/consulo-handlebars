@@ -1,18 +1,14 @@
 package consulo.handlebars;
 
-import javax.annotation.Nonnull;
 import com.dmarcotte.handlebars.HbIcons;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
-import com.dmarcotte.handlebars.psi.HbBlockWrapper;
-import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
-import com.dmarcotte.handlebars.psi.HbOpenInverseBlockMustache;
-import com.dmarcotte.handlebars.psi.HbPartial;
-import com.dmarcotte.handlebars.psi.HbSimpleInverse;
-import com.dmarcotte.handlebars.psi.HbSimpleMustache;
+import com.dmarcotte.handlebars.psi.*;
 import com.intellij.psi.PsiElement;
-import consulo.annotations.RequiredReadAction;
+import consulo.annotation.access.RequiredReadAction;
 import consulo.ide.IconDescriptor;
 import consulo.ide.IconDescriptorUpdater;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author VISTALL
