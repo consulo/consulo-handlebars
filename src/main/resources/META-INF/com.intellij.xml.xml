@@ -1,5 +1,5 @@
-<idea-plugin version="2">
+<consulo-plugin>
   <extensions defaultExtensionNs="com.intellij.xml">
     <html.scriptContentProvider language="Handlebars" implementationClass="com.dmarcotte.handlebars.HbScriptContentProvider"/>
   </extensions>
-</idea-plugin>
+</consulo-plugin>
