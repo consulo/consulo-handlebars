@@ -10,7 +10,7 @@ import static com.dmarcotte.handlebars.parsing.HbTokenTypes.*;
  * All the tests should be nearly identical except that we generate whitespace tokens to give IDEA a better picture
  * of the text, vs. the actual Handlebars lexer which can just toss whitespace out
  */
-public class HbTokenizerSpecTest extends HbLexerTest {
+public abstract class HbTokenizerSpecTest extends HbLexerTest {
 
   /**
    * tokenizes a simple mustache as 'OPEN ID CLOSE'

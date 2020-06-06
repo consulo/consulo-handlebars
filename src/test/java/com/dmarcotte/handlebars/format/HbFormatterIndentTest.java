@@ -4,7 +4,7 @@ import com.dmarcotte.handlebars.config.HbConfig;
 import com.intellij.ide.highlighter.HtmlFileType;
 import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
 
-public class HbFormatterIndentTest extends HbFormatterTest {
+public abstract class HbFormatterIndentTest extends HbFormatterTest {
 
   /**
    * This sanity check should be enough to ensure that we don't format

@@ -8,7 +8,7 @@ import javax.swing.*;
 
 import static com.intellij.testFramework.PlatformTestUtil.assertTreeEqual;
 
-public class HbStructureViewTest extends LightPlatformCodeInsightFixtureTestCase {
+public abstract class HbStructureViewTest extends LightPlatformCodeInsightFixtureTestCase {
 
   private static final String ourTestFileName = "test.hbs";
 

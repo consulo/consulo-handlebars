@@ -6,7 +6,7 @@ import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 import javax.annotation.Nonnull;
 
-public class HbBlockMismatchFixTest extends LightPlatformCodeInsightFixtureTestCase {
+public abstract class HbBlockMismatchFixTest extends LightPlatformCodeInsightFixtureTestCase {
   public HbBlockMismatchFixTest() {
   }
 

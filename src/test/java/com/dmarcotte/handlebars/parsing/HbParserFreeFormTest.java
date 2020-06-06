@@ -5,7 +5,7 @@ package com.dmarcotte.handlebars.parsing;
  * <p/>
  * See the docs on {@see HbParserTest} for info on how these tests work
  */
-public class HbParserFreeFormTest extends HbParserTest {
+public abstract class HbParserFreeFormTest extends HbParserTest {
   public void testSampleFullFile1() {
     doTest(true);
   }

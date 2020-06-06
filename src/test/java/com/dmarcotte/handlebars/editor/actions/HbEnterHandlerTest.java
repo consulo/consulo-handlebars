@@ -2,7 +2,7 @@ package com.dmarcotte.handlebars.editor.actions;
 
 import com.dmarcotte.handlebars.config.HbConfig;
 
-public class HbEnterHandlerTest extends HbActionHandlerTest {
+public abstract class HbEnterHandlerTest extends HbActionHandlerTest {
 
   private boolean myPrevFormatSetting;
 

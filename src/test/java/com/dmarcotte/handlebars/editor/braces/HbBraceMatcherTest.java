@@ -4,7 +4,7 @@ import com.dmarcotte.handlebars.file.HbFileType;
 import com.intellij.codeInsight.highlighting.BraceMatchingUtil;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 
-public class HbBraceMatcherTest extends LightPlatformCodeInsightFixtureTestCase {
+public abstract class HbBraceMatcherTest extends LightPlatformCodeInsightFixtureTestCase {
 
   private static final String ourBraceMatchIndicator = "<brace_match>";
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RunWith(value = Parameterized.class)
-public class PropertyTest2 {
+public abstract class PropertyTest2 {
 
   private final PropertyTestDefinition propertyTestDefinition;
 

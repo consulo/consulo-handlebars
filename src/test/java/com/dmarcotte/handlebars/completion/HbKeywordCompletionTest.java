@@ -6,7 +6,7 @@ import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCa
 
 import java.util.Arrays;
 
-public class HbKeywordCompletionTest extends LightPlatformCodeInsightFixtureTestCase {
+public abstract class HbKeywordCompletionTest extends LightPlatformCodeInsightFixtureTestCase {
   public void doBasicTest(String text, String... expected) {
     myFixture.configureByText(HbFileType.INSTANCE, text);
     myFixture.complete(CompletionType.BASIC);

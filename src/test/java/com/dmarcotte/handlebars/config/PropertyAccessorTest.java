@@ -3,7 +3,7 @@ package com.dmarcotte.handlebars.config;
 import junit.framework.Assert;
 import org.junit.Test;
 
-public class PropertyAccessorTest {
+public abstract class PropertyAccessorTest {
 
   // grab a Property to use in this test.  NOTE: the specific property is not significant.
   private final Property myTestProperty = Property.FORMATTER;

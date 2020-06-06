@@ -7,7 +7,7 @@ import static com.dmarcotte.handlebars.parsing.HbTokenTypes.*;
  * <p/>
  * See {@link HbTokenizerSpecTest} for the tests based on the formal Handlebars description in its tokenizer_spec.rb
  */
-public class HbLexerFreeFormTest extends HbLexerTest {
+public abstract class HbLexerFreeFormTest extends HbLexerTest {
   public void testPlainMustache1() {
     TokenizerResult result = tokenize("{{mustacheContent}}");
     result.shouldMatchTokenTypes(OPEN, ID, CLOSE);

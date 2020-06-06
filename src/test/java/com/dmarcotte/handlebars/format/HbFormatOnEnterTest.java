@@ -3,7 +3,7 @@ package com.dmarcotte.handlebars.format;
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.dmarcotte.handlebars.editor.actions.HbActionHandlerTest;
 
-public class HbFormatOnEnterTest extends HbActionHandlerTest implements HbFormattingModelBuilderTest {
+public abstract class HbFormatOnEnterTest extends HbActionHandlerTest implements HbFormattingModelBuilderTest {
 
   private boolean myPrevFormatSetting;
 

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PropertyTest1 {
+public abstract class PropertyTest1 {
 
   /**
    * This test will fail if properties are added/removed in {@link com.dmarcotte.handlebars.config.Property}

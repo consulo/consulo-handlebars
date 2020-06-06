@@ -4,7 +4,7 @@ import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.intellij.lang.Language;
 
-public class HbCommentActionTest extends HbActionHandlerTest {
+public abstract class HbCommentActionTest extends HbActionHandlerTest {
 
   private Language myPrevCommenterLang;
 

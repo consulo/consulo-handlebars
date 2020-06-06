@@ -8,7 +8,7 @@ package com.dmarcotte.handlebars.parsing;
  * <p/>
  * See the docs on {@see HbParserTest} for info on how these tests work
  */
-public class HbParserSpecTest extends HbParserTest {
+public abstract class HbParserSpecTest extends HbParserTest {
 
   public void testSimpleMustaches() {
     doTest(true);

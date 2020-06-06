@@ -8,7 +8,7 @@ import com.dmarcotte.handlebars.format.FormatterTestSettings;
  * These tests are based on other children of {@link com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase},
  * in particular {@code com.intellij.application.options.codeInsight.editor.quotes.SelectionQuotingTypedHandlerTest}
  */
-public class HbTypedHandlerTest extends HbActionHandlerTest {
+public abstract class HbTypedHandlerTest extends HbActionHandlerTest {
 
   private boolean myPrevAutoCloseSetting;
   private FormatterTestSettings formatterTestSettings;
