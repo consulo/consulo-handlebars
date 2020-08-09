@@ -1,7 +1,5 @@
 package com.dmarcotte.handlebars;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.intellij.lang.Language;
 import com.intellij.openapi.editor.colors.EditorColorsScheme;
@@ -10,10 +8,12 @@ import com.intellij.openapi.editor.ex.util.LayeredLexerEditorHighlighter;
 import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.openapi.fileTypes.PlainTextFileType;
 import com.intellij.openapi.fileTypes.SyntaxHighlighter;
+import com.intellij.openapi.fileTypes.SyntaxHighlighterFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public class HbTemplateHighlighter extends LayeredLexerEditorHighlighter {
@@ -31,9 +31,7 @@ public class HbTemplateHighlighter extends LayeredLexerEditorHighlighter {
       if (language != null) type = language.getAssociatedFileType();
       if (type == null) type = HbLanguage.getDefaultTemplateFileType();
     }
-    @SuppressWarnings("deprecation") // deprecated in IDEA 12, still needed in IDEA 11 TODO remove when IDEA 11 support is dropped
-      SyntaxHighlighter outerHighlighter = SyntaxHighlighter.PROVIDER.create(type, project, virtualFile);
-
+    SyntaxHighlighter outerHighlighter = SyntaxHighlighterFactory.getSyntaxHighlighter(type, project, virtualFile);
     registerLayer(HbTokenTypes.CONTENT, new LayerDescriptor(outerHighlighter, ""));
   }
 }
