@@ -1,15 +1,15 @@
 package com.dmarcotte.handlebars;
 
-import com.intellij.openapi.util.IconLoader;
+import consulo.handlebars.icon.HandlebarsIconGroup;
 import consulo.ui.image.Image;
 
 public interface HbIcons
 {
-	Image FILE_ICON = IconLoader.getIcon("/icons/handlebars_icon.png");
+	Image FILE_ICON = HandlebarsIconGroup.handlebars_icon();
 
-	Image OPEN_BLOCK = IconLoader.getIcon("/icons/elements/openBlock.png");
-	Image OPEN_INVERSE = IconLoader.getIcon("/icons/elements/openInverse.png");
-	Image OPEN_MUSTACHE = IconLoader.getIcon("/icons/elements/openMustache.png");
-	Image OPEN_UNESCAPED = IconLoader.getIcon("/icons/elements/openUnescaped.png");
-	Image OPEN_PARTIAL = IconLoader.getIcon("/icons/elements/openPartial.png");
+	Image OPEN_BLOCK = HandlebarsIconGroup.elementsOpenBlock();
+	Image OPEN_INVERSE = HandlebarsIconGroup.elementsOpenInverse();
+	Image OPEN_MUSTACHE = HandlebarsIconGroup.elementsOpenMustache();
+	Image OPEN_UNESCAPED = HandlebarsIconGroup.elementsOpenUnescaped();
+	Image OPEN_PARTIAL = HandlebarsIconGroup.elementsOpenPartial();
 }
