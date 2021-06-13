@@ -14,10 +14,8 @@ import com.intellij.psi.impl.source.PsiFileImpl;
 import com.intellij.psi.templateLanguages.ConfigurableTemplateLanguageFileViewProvider;
 import com.intellij.psi.templateLanguages.TemplateDataElementType;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import gnu.trove.THashSet;
-import javax.annotation.Nonnull;
 
-import java.util.Arrays;
+import javax.annotation.Nonnull;
 import java.util.Set;
 
 public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider
@@ -66,7 +64,7 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
   @Nonnull
   @Override
   public Set<Language> getLanguages() {
-    return new THashSet<Language>(Arrays.asList(new Language[]{HbLanguage.INSTANCE, getTemplateDataLanguage(myManager, myFile)}));
+    return Set.of(HbLanguage.INSTANCE, getTemplateDataLanguage(myManager, myFile));
   }
 
   @Override
