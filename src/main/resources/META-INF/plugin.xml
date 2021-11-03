@@ -10,6 +10,9 @@
 	<version>SNAPSHOT</version>
 	<depends config-file="com.intellij.xml.xml">com.intellij.xml</depends>
 	<vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
+	<tags>
+		<tag>template.language</tag>
+	</tags>
 
 	<extensions defaultExtensionNs="com.intellij">
 		<iconDescriptorUpdater implementation="consulo.handlebars.HbIconDescriptorUpdater"/>
