@@ -29,7 +29,7 @@
 							 implementationClass="com.dmarcotte.handlebars.editor.folding.HbFoldingBuilder"/>
 		<typedHandler implementation="com.dmarcotte.handlebars.editor.actions.HbTypedHandler"/>
 		<enterHandlerDelegate implementation="com.dmarcotte.handlebars.editor.actions.HbEnterHandler"/>
-		<applicationConfigurable instance="com.dmarcotte.handlebars.pages.HbConfigurationPage"/>
+		<applicationConfigurable id="editor.hb" parentId="editor" displayName="Handlebars/Mustache" instance="com.dmarcotte.handlebars.pages.HbConfigurationPage"/>
 		<applicationConfigurable id="editor.preferences.folding.hb"
 								 parentId="editor.preferences.folding"
 								 displayName="Handlebars/Mustache"
