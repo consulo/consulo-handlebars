@@ -1,12 +1,5 @@
 package com.dmarcotte.handlebars.file;
 
-import java.nio.charset.Charset;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
-import org.jetbrains.annotations.NonNls;
-import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbIcons;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.intellij.lang.Language;
@@ -15,7 +8,14 @@ import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
+import consulo.handlebars.localize.HbLocalize;
+import consulo.localize.LocalizeValue;
 import consulo.ui.image.Image;
+import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.nio.charset.Charset;
 
 public class HbFileType extends LanguageFileType implements TemplateLanguageFileType {
   public static final LanguageFileType INSTANCE = new HbFileType();
@@ -33,8 +33,8 @@ public class HbFileType extends LanguageFileType implements TemplateLanguageFile
   }
 
   @Nonnull
-  public String getDescription() {
-    return HbBundle.message("hb.files.file.type.description");
+  public LocalizeValue getDescription() {
+    return HbLocalize.hbFilesFileTypeDescription();
   }
 
   @Nonnull

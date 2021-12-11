@@ -1,0 +1,106 @@
+hb.files.file.type.description:
+  text: Handlebars/Mustache
+hb.page.colors.descriptor.mustaches.key:
+  text: Mustaches
+hb.page.colors.descriptor.identifiers.key:
+  text: Identifiers
+hb.page.colors.descriptor.comments.key:
+  text: Comments
+hb.page.colors.descriptor.operators.key:
+  text: Operators
+hb.page.colors.descriptor.values.key:
+  text: Primitives
+hb.page.colors.descriptor.strings.key:
+  text: Strings
+hb.page.colors.descriptor.data.prefix.key:
+  text: Data Prefix
+hb.page.colors.descriptor.data.key:
+  text: Data
+hb.page.colors.descriptor.escape.key:
+  text: Escape Character
+hb.parsing.no.open.mustache:
+  text: No corresponding open mustache
+hb.parsing.invalid:
+  text: Invalid
+hb.parsing.expected.path.or.data:
+  text: Expected a path or @data
+hb.parsing.expected.parameter:
+  text: Expected a parameter
+hb.parsing.expected.hash:
+  text: Expected a hash
+hb.parsing.element.expected.content:
+  text: Expected Template Content
+hb.parsing.element.expected.outer_element_type:
+  text: Expected Handlebars Content
+hb.parsing.element.expected.white_space:
+  text: Expected White Space
+hb.parsing.element.expected.comment:
+  text: Expected a Comment
+hb.parsing.element.expected.open:
+  text: Expected Open "{{"
+hb.parsing.element.expected.open_block:
+  text: Expected Open Block "{{#"
+hb.parsing.element.expected.open_partial:
+  text: Expected Open Partial "{{>"
+hb.parsing.element.expected.open_end_block:
+  text: Expected Open End Block "{{/"
+hb.parsing.element.expected.open_inverse:
+  text: Expected Open Inverse "{{^"
+hb.parsing.element.expected.open_unescaped:
+  text: Expected Open Unescaped "{{{"
+hb.parsing.element.expected.equals:
+  text: Expected Equals "="
+hb.parsing.element.expected.id:
+  text: Expected an ID
+hb.parsing.element.expected.partial.name:
+  text: Expected partial name
+hb.parsing.element.expected.data:
+  text: Expected a Data identifier
+hb.parsing.element.expected.separator:
+  text: Expected a Separator "/" or "."
+hb.parsing.element.expected.close:
+  text: Expected Close "}}"
+hb.parsing.element.expected.boolean:
+  text: Expected "true" or "false"
+hb.parsing.element.expected.integer:
+  text: Expected an Integer
+hb.parsing.element.expected.string:
+  text: Expected a String
+hb.parsing.element.expected.invalid:
+  text: Unexpected token
+hb.pages.options.generate.closing.tag:
+  text: '&Automatically insert closing tag'
+hb.pages.options.formatter:
+  text: '&Enable formatting'
+hb.pages.options.title:
+  text: Handlebars/Mustache
+hb.pages.folding.auto.collapse.blocks:
+  text: Collapse blocks
+hb.page.options.commenter.language:
+  text: '&Language for comments:'
+hb.page.options.commenter.language.tooltip:
+  text: Controls which language's comment syntax to use for "Comment with Block Comment" and "Comment with Line Comment" actions
+hb.parsing.comment.unclosed:
+  text: Unclosed comment
+hb.block.mismatch.intention.rename.open:
+  text: Change block start ''{0}'' to ''{1}''
+hb.block.mismatch.intention.rename.close:
+  text: Change block end ''{0}'' to ''{1}''
+hb.block.mismatch.inspection.open.block:
+  text: '''''{0}'''' does not match ''''{1}'''' from block end'
+hb.block.mismatch.inspection.close.block:
+  text: '''''{1}'''' does not match ''''{0}'''' from block start'
+hb.block.mismatch.inspection.missing.end.block:
+  text: '''''{0}'''' block not closed'
+hb.block.mismatch.inspection.missing.start.block:
+  text: No block start for ''{0}''
+inspections.group.name:
+  text: Handlebars
+inspection.html.file.has.a.template:
+  text: Html file has an Handlebars template
+inspection.html.file.has.no.template:
+  text: Html file has no Handlebars template
+mark.as.hb.file:
+  text: Mark as Handlebars file
+unmark.hb.file:
+  text: Unmark Handlebars file
