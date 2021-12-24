@@ -1,4 +1,4 @@
-<consulo-plugin>
+<consulo-plugin url="https://github.com/consulo/consulo-handlebars">
 	<id>com.dmarcotte.handlebars</id>
 	<name>Handlebars/Mustache</name>
 	<description>
