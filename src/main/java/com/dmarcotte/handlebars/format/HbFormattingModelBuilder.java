@@ -1,30 +1,40 @@
 package com.dmarcotte.handlebars.format;
 
+import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.HbPsiUtil;
-import com.intellij.formatting.*;
-import com.intellij.formatting.templateLanguages.*;
-import com.intellij.lang.ASTNode;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiErrorElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.codeStyle.CodeStyleSettings;
-import com.intellij.psi.formatter.DocumentBasedFormattingModel;
-import com.intellij.psi.formatter.xml.SyntheticBlock;
-import com.intellij.psi.templateLanguages.SimpleTemplateLanguageFormattingModelBuilder;
-import com.intellij.psi.tree.IElementType;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.document.util.TextRange;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IElementType;
+import consulo.language.codeStyle.*;
+import consulo.language.codeStyle.template.*;
+import consulo.language.parser.PsiBuilder;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiErrorElement;
+import consulo.language.psi.PsiFile;
+import consulo.xml.psi.formatter.xml.SyntheticBlock;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.List;
 
 /**
  * Template aware formatter which provides formatting for Handlebars/Mustache syntax and delegates formatting
  * for the templated language to that languages formatter
  */
+@ExtensionImpl
 public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBuilder {
+  private static SimpleTemplateLanguageFormattingModelBuilder ourSimpleBuilder = new SimpleTemplateLanguageFormattingModelBuilder() {
+    @Nonnull
+    @Override
+    public Language getLanguage() {
+      return HbLanguage.INSTANCE;
+    }
+  };
+
   @Override
   public TemplateLanguageBlock createTemplateLanguageBlock(@Nonnull ASTNode node,
                                                            @Nullable Wrap wrap,
@@ -35,18 +45,20 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
   }
 
   /**
-   * We have to override {@link com.intellij.formatting.templateLanguages.TemplateLanguageFormattingModelBuilder#createModel}
+   * We have to override {@link TemplateLanguageFormattingModelBuilder#createModel}
    * since after we delegate to some templated languages, those languages (xml/html for sure, potentially others)
    * delegate right back to us to format the HbTokenTypes.OUTER_ELEMENT_TYPE token we tell them to ignore,
    * causing an stack-overflowing loop of polite format-delegation.
    */
   @Nonnull
-  public FormattingModel createModel(PsiElement element, CodeStyleSettings settings) {
+  public FormattingModel createModel(FormattingContext context) {
+    CodeStyleSettings settings = context.getCodeStyleSettings();
+    PsiElement element = context.getPsiElement();
 
     if (!HbConfig.isFormattingEnabled()) {
       // formatting is disabled, return the no-op formatter (note that this still delegates formatting
       // to the templated language, which lets the users manage that separately)
-      return new SimpleTemplateLanguageFormattingModelBuilder().createModel(element, settings);
+      return ourSimpleBuilder.createModel(context);
     }
 
     final PsiFile file = element.getContainingFile();
@@ -57,7 +69,7 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
     if (node.getElementType() == HbTokenTypes.OUTER_ELEMENT_TYPE) {
       // If we're looking at a HbTokenTypes.OUTER_ELEMENT_TYPE element, then we've been invoked by our templated
       // language.  Make a dummy block to allow that formatter to continue
-      return new SimpleTemplateLanguageFormattingModelBuilder().createModel(element, settings);
+      return ourSimpleBuilder.createModel(context);
     }
     else {
       rootBlock = getRootBlock(file, file.getViewProvider(), settings);
@@ -68,12 +80,18 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
   /**
    * Do format my model!
    *
-   * @return false all the time to tell the {@link com.intellij.formatting.templateLanguages.TemplateLanguageFormattingModelBuilder}
-   *         to not-not format our model (i.e. yes please!  Format away!)
+   * @return false all the time to tell the {@link TemplateLanguageFormattingModelBuilder}
+   * to not-not format our model (i.e. yes please!  Format away!)
    */
   @Override
   public boolean dontFormatMyModel() {
     return false;
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 
   private static class HandlebarsBlock extends TemplateLanguageBlock {
@@ -111,7 +129,7 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
      * <p/>
      * This naturally maps to any "statements" expression in the grammar which is not a child of the
      * root "program" element.  See {@link com.dmarcotte.handlebars.parsing.HbParsing#parseProgram} and
-     * {@link com.dmarcotte.handlebars.parsing.HbParsing#parseStatement(com.intellij.lang.PsiBuilder)} for the
+     * {@link com.dmarcotte.handlebars.parsing.HbParsing#parseStatement(PsiBuilder)} for the
      * relevant parts of the parser.
      * <p/>
      * To understand the approach in this method, consider the following:
@@ -164,12 +182,12 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
       }
 
       if (myNode.getTreeParent() != null
-          && HbPsiUtil.isNonRootStatementsElement(myNode.getTreeParent().getPsi())) {
+        && HbPsiUtil.isNonRootStatementsElement(myNode.getTreeParent().getPsi())) {
         // we're computing the indent for a direct descendant of a non-root STATEMENTS:
         //      if its Block parent (i.e. not HB AST Tree parent) is a Handlebars block
         //      which has NOT been indented, then have the element provide the indent itself
         if (getParent() instanceof HandlebarsBlock
-            && ((HandlebarsBlock)getParent()).getIndent() == Indent.getNoneIndent()) {
+          && ((HandlebarsBlock)getParent()).getIndent() == Indent.getNoneIndent()) {
           return Indent.getNormalIndent();
         }
       }
@@ -219,13 +237,13 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
        * Also indent if we are wrapped in a block created by the templated language
        */
       if (myNode.getElementType() == HbTokenTypes.BLOCK_WRAPPER
-          || (getParent() instanceof DataLanguageBlockWrapper
-              // hack alert: the following check opportunistically fixes com.dmarcotte.handlebars.format.HbFormatOnEnterTest#testSimpleBlockInDiv8
-              //      and com.dmarcotte.handlebars.format.HbFormatOnEnterTest#testSimpleBlockInDiv8
-              //      but isn't really based on solid logic (why do these checks work?), so when there's inevitably a
-              //      format-on-enter bug, this is the first bit of code to be suspicious of
-              &&
-              (myNode.getElementType() != HbTokenTypes.STATEMENTS || myNode.getTreeNext() instanceof PsiErrorElement))) {
+        || (getParent() instanceof DataLanguageBlockWrapper
+        // hack alert: the following check opportunistically fixes com.dmarcotte.handlebars.format.HbFormatOnEnterTest#testSimpleBlockInDiv8
+        //      and com.dmarcotte.handlebars.format.HbFormatOnEnterTest#testSimpleBlockInDiv8
+        //      but isn't really based on solid logic (why do these checks work?), so when there's inevitably a
+        //      format-on-enter bug, this is the first bit of code to be suspicious of
+        &&
+        (myNode.getElementType() != HbTokenTypes.STATEMENTS || myNode.getTreeNext() instanceof PsiErrorElement))) {
         return new ChildAttributes(Indent.getNormalIndent(), null);
       }
       else {
@@ -261,7 +279,7 @@ public class HbFormattingModelBuilder extends TemplateLanguageFormattingModelBui
       // we're a child of a templated language node and need an indent
       BlockWithParent parent = getParent();
       while (parent instanceof DataLanguageBlockWrapper
-             && ((DataLanguageBlockWrapper)parent).getOriginal() instanceof SyntheticBlock) {
+        && ((DataLanguageBlockWrapper)parent).getOriginal() instanceof SyntheticBlock) {
         parent = parent.getParent();
       }
 

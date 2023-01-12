@@ -2,18 +2,17 @@ package com.dmarcotte.handlebars.file;
 
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
-import com.intellij.lang.Language;
-import com.intellij.lang.LanguageParserDefinitions;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.LanguageSubstitutors;
-import com.intellij.psi.MultiplePsiFilesPerDocumentFileViewProvider;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.impl.source.PsiFileImpl;
-import com.intellij.psi.templateLanguages.ConfigurableTemplateLanguageFileViewProvider;
-import com.intellij.psi.templateLanguages.TemplateDataElementType;
-import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
+import consulo.language.Language;
+import consulo.language.impl.file.MultiplePsiFilesPerDocumentFileViewProvider;
+import consulo.language.impl.psi.PsiFileImpl;
+import consulo.language.impl.psi.template.TemplateDataElementType;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.psi.LanguageSubstitutors;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiManager;
+import consulo.language.template.ConfigurableTemplateLanguageFileViewProvider;
+import consulo.language.template.TemplateDataLanguageMappings;
+import consulo.virtualFileSystem.VirtualFile;
 
 import javax.annotation.Nonnull;
 import java.util.Set;
@@ -39,7 +38,7 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
       dataLang = HbLanguage.getDefaultTemplateFileType().getLanguage();
     }
 
-    Language substituteLang = LanguageSubstitutors.INSTANCE.substituteLanguage(dataLang, file, manager.getProject());
+    Language substituteLang = LanguageSubstitutors.substituteLanguage(dataLang, file, manager.getProject());
 
     // only use a substituted language if it's templateable
     if (TemplateDataLanguageMappings.getTemplateableLanguages().contains(substituteLang)) {
@@ -74,7 +73,7 @@ public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvi
 
   @Override
   protected PsiFile createFile(@Nonnull Language lang) {
-    ParserDefinition parserDefinition = LanguageParserDefinitions.INSTANCE.forLanguage(lang);
+    ParserDefinition parserDefinition = ParserDefinition.forLanguage(lang);
     if (parserDefinition == null) {
       return null;
     }

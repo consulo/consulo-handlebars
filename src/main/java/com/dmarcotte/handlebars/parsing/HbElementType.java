@@ -1,11 +1,11 @@
 package com.dmarcotte.handlebars.parsing;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbLanguage;
-import com.intellij.psi.tree.IElementType;
+import consulo.language.ast.IElementType;
 import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
 
 class HbElementType extends IElementType {
   private final String _parseExpectedMessageKey;

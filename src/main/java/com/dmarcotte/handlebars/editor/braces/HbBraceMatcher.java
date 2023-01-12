@@ -1,18 +1,19 @@
 package com.dmarcotte.handlebars.editor.braces;
 
+import com.dmarcotte.handlebars.file.HbFileType;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
-import com.intellij.codeInsight.highlighting.BraceMatcher;
-import com.intellij.openapi.editor.highlighter.HighlighterIterator;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IElementType;
+import consulo.codeEditor.HighlighterIterator;
+import consulo.language.ast.IElementType;
+import consulo.language.editor.highlight.VirtualFileBraceMatcher;
+import consulo.language.psi.PsiFile;
+import consulo.virtualFileSystem.fileType.FileType;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.HashSet;
 import java.util.Set;
 
-public class HbBraceMatcher implements BraceMatcher {
+public class HbBraceMatcher implements VirtualFileBraceMatcher {
 
   private static final Set<IElementType> LEFT_BRACES = new HashSet<IElementType>();
   private static final Set<IElementType> RIGHT_BRACES = new HashSet<IElementType>();
@@ -30,7 +31,7 @@ public class HbBraceMatcher implements BraceMatcher {
   @Override
   public boolean isPairBraces(IElementType tokenType1, IElementType tokenType2) {
     return LEFT_BRACES.contains(tokenType1) && RIGHT_BRACES.contains(tokenType2)
-           || RIGHT_BRACES.contains(tokenType1) && LEFT_BRACES.contains(tokenType2);
+      || RIGHT_BRACES.contains(tokenType1) && LEFT_BRACES.contains(tokenType2);
   }
 
   @Override
@@ -81,9 +82,9 @@ public class HbBraceMatcher implements BraceMatcher {
       }
 
       if (iterator.getTokenType() == HbTokenTypes.OPEN
-          || iterator.getTokenType() == HbTokenTypes.OPEN_PARTIAL
-          || iterator.getTokenType() == HbTokenTypes.OPEN_UNESCAPED
-          || iterator.getTokenType() == HbTokenTypes.OPEN_ENDBLOCK) {
+        || iterator.getTokenType() == HbTokenTypes.OPEN_PARTIAL
+        || iterator.getTokenType() == HbTokenTypes.OPEN_UNESCAPED
+        || iterator.getTokenType() == HbTokenTypes.OPEN_ENDBLOCK) {
         // the first open token we encountered was a simple opener (i.e. didn't start a block)
         // or the close brace of a close block 'stache for some open block.  Definitely a right brace.
         isRBraceToken = true;
@@ -122,5 +123,11 @@ public class HbBraceMatcher implements BraceMatcher {
   @Override
   public int getCodeConstructStart(PsiFile file, int openingBraceOffset) {
     return openingBraceOffset;
+  }
+
+  @Nonnull
+  @Override
+  public FileType getFileType() {
+    return HbFileType.INSTANCE;
   }
 }

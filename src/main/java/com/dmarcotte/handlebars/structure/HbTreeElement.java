@@ -1,20 +1,19 @@
 package com.dmarcotte.handlebars.structure;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.dmarcotte.handlebars.psi.HbPsiElement;
+import com.dmarcotte.handlebars.psi.HbStatements;
+import consulo.fileEditor.structureView.StructureViewTreeElement;
+import consulo.language.editor.structureView.PsiTreeElementBase;
+import consulo.language.icon.IconDescriptorUpdaters;
+import consulo.language.psi.PsiElement;
+import consulo.ui.image.Image;
+import consulo.util.lang.reflect.ReflectionUtil;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
-import com.dmarcotte.handlebars.psi.HbPsiElement;
-import com.dmarcotte.handlebars.psi.HbStatements;
-import com.intellij.ide.structureView.StructureViewTreeElement;
-import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
-import com.intellij.psi.PsiElement;
-import com.intellij.util.ReflectionUtil;
-import consulo.ide.IconDescriptorUpdaters;
-import consulo.ui.image.Image;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 class HbTreeElement extends PsiTreeElementBase<HbPsiElement> {
 

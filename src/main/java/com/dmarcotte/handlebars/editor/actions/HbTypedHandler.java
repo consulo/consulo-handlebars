@@ -5,25 +5,28 @@ import com.dmarcotte.handlebars.config.HbConfig;
 import com.dmarcotte.handlebars.file.HbFileViewProvider;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.*;
-import com.intellij.codeInsight.editorActions.TypedHandlerDelegate;
-import com.intellij.lang.ASTNode;
-import com.intellij.openapi.editor.CaretModel;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Condition;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.codeStyle.CodeStyleManager;
-import com.intellij.psi.util.PsiTreeUtil;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.CaretModel;
+import consulo.codeEditor.Editor;
+import consulo.document.util.TextRange;
+import consulo.language.ast.ASTNode;
+import consulo.language.codeStyle.CodeStyleManager;
+import consulo.language.editor.action.TypedHandlerDelegate;
+import consulo.language.file.FileViewProvider;
+import consulo.language.psi.PsiDocumentManager;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.util.PsiTreeUtil;
+import consulo.project.Project;
+import consulo.util.lang.function.Condition;
+
 import javax.annotation.Nonnull;
 
 /**
  * Handler for custom plugin actions on chars typed by the user.  See {@link HbEnterHandler} for custom actions
  * on Enter.
  */
+@ExtensionImpl
 public class HbTypedHandler extends TypedHandlerDelegate {
 
   @Override
@@ -80,7 +83,7 @@ public class HbTypedHandler extends TypedHandlerDelegate {
       HbPsiElement pathElem = (HbPsiElement)openTag.getChildren()[1];
 
       if (pathElem != null
-          && pathElem instanceof HbPath) {
+        && pathElem instanceof HbPath) {
         // insert the corresponding close tag
         editor.getDocument().insertString(offset, "{{/" + pathElem.getText() + "}}");
       }
@@ -102,8 +105,8 @@ public class HbTypedHandler extends TypedHandlerDelegate {
       @Override
       public boolean value(PsiElement element) {
         return element != null
-               && (element instanceof HbSimpleInverse
-                   || element instanceof HbCloseBlockMustache);
+          && (element instanceof HbSimpleInverse
+          || element instanceof HbCloseBlockMustache);
       }
     });
 

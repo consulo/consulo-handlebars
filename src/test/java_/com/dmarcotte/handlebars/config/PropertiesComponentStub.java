@@ -7,9 +7,9 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import org.jetbrains.annotations.NonNls;
-import com.intellij.ide.util.PropertiesComponent;
+import consulo.ide.impl.idea.ide.util.PropertiesComponent;
 
-public class PropertiesComponentStub implements PropertiesComponent
+public class PropertiesComponentStub implements consulo.ide.impl.idea.ide.util.PropertiesComponent
 {
 	private final Map<String, String> fakeStorage = new HashMap<String, String>();
 

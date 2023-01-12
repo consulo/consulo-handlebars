@@ -2,7 +2,7 @@ package com.dmarcotte.handlebars.format;
 
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.intellij.ide.highlighter.HtmlFileType;
-import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
+import consulo.language.codeStyle.CodeStyleSettingsManager;
 
 public abstract class HbFormatterIndentTest extends HbFormatterTest {
 

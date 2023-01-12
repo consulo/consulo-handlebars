@@ -1,23 +1,25 @@
 package com.dmarcotte.handlebars.editor.actions;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.dmarcotte.handlebars.psi.HbPsiUtil;
-import com.intellij.codeInsight.editorActions.enter.EnterHandlerDelegateAdapter;
-import com.intellij.openapi.actionSystem.DataContext;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.actionSystem.EditorActionHandler;
-import com.intellij.openapi.editor.ex.EditorEx;
-import com.intellij.openapi.editor.highlighter.EditorHighlighter;
-import com.intellij.openapi.editor.highlighter.HighlighterIterator;
-import com.intellij.openapi.util.Ref;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.Editor;
+import consulo.codeEditor.EditorEx;
+import consulo.codeEditor.EditorHighlighter;
+import consulo.codeEditor.HighlighterIterator;
+import consulo.codeEditor.action.EditorActionHandler;
+import consulo.dataContext.DataContext;
+import consulo.language.editor.action.EnterHandlerDelegateAdapter;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.util.lang.ref.Ref;
+
+import javax.annotation.Nonnull;
 
 /**
  * Handler for custom plugin actions when {@code Enter} is typed by the user
  */
+@ExtensionImpl
 public class HbEnterHandler extends EnterHandlerDelegateAdapter {
 
   public Result preprocessEnter(@Nonnull final PsiFile file,
@@ -37,7 +39,7 @@ public class HbEnterHandler extends EnterHandlerDelegateAdapter {
      * (Note: <caret> may be indented depending on formatter settings.)
      */
     if (file instanceof HbPsiFile
-        && isBetweenHbTags(editor, file, caretOffset.get())) {
+      && isBetweenHbTags(editor, file, caretOffset.get())) {
       originalHandler.execute(editor, dataContext);
       return Result.Default;
     }

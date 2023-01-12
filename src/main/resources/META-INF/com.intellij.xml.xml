@@ -1,5 +1,0 @@
-<consulo-plugin>
-  <extensions defaultExtensionNs="com.intellij.xml">
-    <html.scriptContentProvider language="Handlebars" implementationClass="com.dmarcotte.handlebars.HbScriptContentProvider"/>
-  </extensions>
-</consulo-plugin>

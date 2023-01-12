@@ -1,11 +1,11 @@
 package com.dmarcotte.handlebars.structure;
 
 import com.dmarcotte.handlebars.psi.HbPsiFile;
-import com.intellij.ide.structureView.StructureViewTreeElement;
-import com.intellij.ide.structureView.impl.common.PsiTreeElementBase;
+import consulo.fileEditor.structureView.StructureViewTreeElement;
+import consulo.language.editor.structureView.PsiTreeElementBase;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.Collection;
 
 class HbTreeElementFile extends PsiTreeElementBase<HbPsiFile> {

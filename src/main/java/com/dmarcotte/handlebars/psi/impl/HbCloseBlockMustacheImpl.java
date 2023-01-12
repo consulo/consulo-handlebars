@@ -2,8 +2,9 @@ package com.dmarcotte.handlebars.psi.impl;
 
 import com.dmarcotte.handlebars.psi.HbCloseBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.PsiElement;
+
 import javax.annotation.Nonnull;
 
 public class HbCloseBlockMustacheImpl extends HbBlockMustacheImpl implements HbCloseBlockMustache {

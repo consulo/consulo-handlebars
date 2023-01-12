@@ -1,8 +1,8 @@
 package com.dmarcotte.handlebars.editor.braces;
 
 import com.dmarcotte.handlebars.file.HbFileType;
-import com.intellij.codeInsight.highlighting.BraceMatchingUtil;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
+import consulo.language.editor.action.BraceMatchingUtil;
 
 public abstract class HbBraceMatcherTest extends LightPlatformCodeInsightFixtureTestCase {
 

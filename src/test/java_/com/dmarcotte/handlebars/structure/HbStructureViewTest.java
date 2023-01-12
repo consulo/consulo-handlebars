@@ -1,8 +1,8 @@
 package com.dmarcotte.handlebars.structure;
 
-import com.intellij.ide.structureView.newStructureView.StructureViewComponent;
+import consulo.ide.impl.idea.ide.structureView.newStructureView.StructureViewComponent;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
-import com.intellij.util.Consumer;
+import consulo.ide.impl.idea.util.Consumer;
 
 import javax.swing.*;
 

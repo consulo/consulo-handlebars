@@ -1,10 +1,10 @@
 package com.dmarcotte.handlebars.parsing;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.HbLanguage;
-import com.intellij.psi.tree.IElementType;
+import consulo.language.ast.IElementType;
 import org.jetbrains.annotations.NonNls;
+
+import javax.annotation.Nonnull;
 
 /**
  * Distinct interface to distinguish the leaf elements we get from the lexer from the synthetic

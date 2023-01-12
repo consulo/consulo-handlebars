@@ -1,21 +1,20 @@
 package com.dmarcotte.handlebars;
 
+import com.dmarcotte.handlebars.parsing.HbTokenTypes;
+import com.dmarcotte.handlebars.parsing._HbLexer;
+import consulo.codeEditor.DefaultLanguageHighlighterColors;
+import consulo.colorScheme.TextAttributes;
+import consulo.colorScheme.TextAttributesKey;
+import consulo.language.ast.IElementType;
+import consulo.language.editor.annotation.HighlightSeverity;
+import consulo.language.editor.highlight.SyntaxHighlighterBase;
+import consulo.language.lexer.Lexer;
+import consulo.util.lang.Pair;
+
+import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import javax.annotation.Nonnull;
-
-import com.dmarcotte.handlebars.parsing.HbTokenTypes;
-import com.dmarcotte.handlebars.parsing._HbLexer;
-import com.intellij.lang.annotation.HighlightSeverity;
-import com.intellij.lexer.Lexer;
-import com.intellij.openapi.editor.DefaultLanguageHighlighterColors;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.editor.markup.TextAttributes;
-import com.intellij.openapi.fileTypes.SyntaxHighlighterBase;
-import com.intellij.openapi.util.Pair;
-import com.intellij.psi.tree.IElementType;
 
 /**
  * @author max

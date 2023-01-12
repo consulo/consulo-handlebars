@@ -1,11 +1,15 @@
 package com.dmarcotte.handlebars;
 
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.IElementType;
+import consulo.language.lexer.Lexer;
+import consulo.xml.lang.HtmlScriptContentProvider;
+
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.intellij.lang.HtmlScriptContentProvider;
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.tree.IElementType;
-
+@ExtensionImpl
 public class HbScriptContentProvider implements HtmlScriptContentProvider {
   @Override
   public IElementType getScriptElementType() {
@@ -16,5 +20,11 @@ public class HbScriptContentProvider implements HtmlScriptContentProvider {
   @Override
   public Lexer getHighlightingLexer() {
     return null;
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 }

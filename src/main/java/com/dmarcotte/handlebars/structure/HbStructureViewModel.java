@@ -3,8 +3,9 @@ package com.dmarcotte.handlebars.structure;
 import com.dmarcotte.handlebars.psi.HbBlockWrapper;
 import com.dmarcotte.handlebars.psi.HbMustache;
 import com.dmarcotte.handlebars.psi.HbPsiFile;
-import com.intellij.ide.structureView.StructureViewTreeElement;
-import com.intellij.ide.structureView.TextEditorBasedStructureViewModel;
+import consulo.fileEditor.structureView.StructureViewTreeElement;
+import consulo.language.editor.structureView.TextEditorBasedStructureViewModel;
+
 import javax.annotation.Nonnull;
 
 class HbStructureViewModel extends TextEditorBasedStructureViewModel {

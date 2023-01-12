@@ -3,9 +3,9 @@ package com.dmarcotte.handlebars.parsing;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.tree.IElementType;
+import consulo.language.ast.IElementType;
 import com.intellij.testFramework.UsefulTestCase;
+import consulo.language.lexer.Lexer;
 import junit.framework.Assert;
 
 public abstract class HbLexerTest extends UsefulTestCase

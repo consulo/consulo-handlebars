@@ -1,9 +1,10 @@
 package com.dmarcotte.handlebars.inspections;
 
 import com.dmarcotte.handlebars.util.HbTestUtils;
-import com.intellij.codeInsight.intention.IntentionAction;
-import com.intellij.openapi.command.WriteCommandAction;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
+import consulo.language.editor.WriteCommandAction;
+import consulo.language.editor.intention.IntentionAction;
+
 import javax.annotation.Nonnull;
 
 public abstract class HbBlockMismatchFixTest extends LightPlatformCodeInsightFixtureTestCase {

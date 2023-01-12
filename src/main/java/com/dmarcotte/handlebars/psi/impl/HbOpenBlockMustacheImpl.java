@@ -1,11 +1,11 @@
 package com.dmarcotte.handlebars.psi.impl;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.psi.HbCloseBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.PsiElement;
+
+import javax.annotation.Nonnull;
 
 public class HbOpenBlockMustacheImpl extends HbBlockMustacheImpl implements HbOpenBlockMustache {
   public HbOpenBlockMustacheImpl(@Nonnull ASTNode astNode) {

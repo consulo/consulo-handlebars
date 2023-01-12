@@ -2,26 +2,26 @@ package com.dmarcotte.handlebars.format;
 
 import java.io.File;
 
+import consulo.document.Document;
+import consulo.undoRedo.CommandProcessor;
+import consulo.util.lang.StringUtil;
+import consulo.virtualFileSystem.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.util.HbTestUtils;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.command.CommandProcessor;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.EditorFactory;
-import com.intellij.openapi.editor.impl.DocumentImpl;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.openapi.util.io.FileUtil;
-import com.intellij.openapi.util.text.StringUtil;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiManager;
-import com.intellij.psi.codeStyle.CodeStyleManager;
-import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
+import consulo.application.ApplicationManager;
+import consulo.codeEditor.EditorFactory;
+import consulo.document.impl.DocumentImpl;
+import consulo.language.file.LanguageFileType;
+import consulo.document.util.TextRange;
+import consulo.ide.impl.idea.openapi.util.io.FileUtil;
+import consulo.language.psi.PsiDocumentManager;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiManager;
+import consulo.language.codeStyle.CodeStyleManager;
+import consulo.language.template.TemplateDataLanguageMappings;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
-import com.intellij.util.IncorrectOperationException;
+import consulo.util.lang.IncorrectOperationException;
 
 /**
  * Base class for Handlebars formatter tests.  Based on com.intellij.psi.formatter.java.AbstractJavaFormatterTest.

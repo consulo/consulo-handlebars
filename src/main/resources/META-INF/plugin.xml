@@ -8,33 +8,9 @@
 	</description>
 	<category>Template Languages</category>
 	<version>SNAPSHOT</version>
-	<depends config-file="com.intellij.xml.xml">com.intellij.xml</depends>
+	<depends>com.intellij.xml</depends>
 	<vendor url="https://github.com/dmarcotte">dmarcotte</vendor>
 	<tags>
 		<tag>template.language</tag>
 	</tags>
-
-	<extensions defaultExtensionNs="com.intellij">
-		<iconDescriptorUpdater implementation="consulo.handlebars.HbIconDescriptorUpdater"/>
-		<fileTypeFactory implementation="com.dmarcotte.handlebars.file.HbFileTypeFactory"/>
-		<lang.parserDefinition language="Handlebars" implementationClass="com.dmarcotte.handlebars.parsing.HbParseDefinition"/>
-		<lang.formatter language="Handlebars" implementationClass="com.dmarcotte.handlebars.format.HbFormattingModelBuilder"/>
-		<colorSettingsPage implementation="com.dmarcotte.handlebars.pages.HbColorsPage"/>
-		<lang.fileViewProviderFactory language="Handlebars" implementationClass="com.dmarcotte.handlebars.file.HbFileViewProviderFactory"/>
-		<lang.commenter language="Handlebars" implementationClass="com.dmarcotte.handlebars.editor.comments.HbCommenter"/>
-		<braceMatcher filetype="Handlebars/Mustache" implementationClass="com.dmarcotte.handlebars.editor.braces.HbBraceMatcher"/>
-		<editorHighlighterProvider filetype="Handlebars/Mustache" implementationClass="com.dmarcotte.handlebars.file.HbEditorHighlighterProvider" />
-		<completion.contributor language="Handlebars" implementationClass="com.dmarcotte.handlebars.completion.HbKeywordCompletionContributor"/>
-		<lang.foldingBuilder language="Handlebars"
-							 implementationClass="com.dmarcotte.handlebars.editor.folding.HbFoldingBuilder"/>
-		<typedHandler implementation="com.dmarcotte.handlebars.editor.actions.HbTypedHandler"/>
-		<enterHandlerDelegate implementation="com.dmarcotte.handlebars.editor.actions.HbEnterHandler"/>
-		<applicationConfigurable id="editor.hb" parentId="editor" displayName="Handlebars/Mustache" instance="com.dmarcotte.handlebars.pages.HbConfigurationPage"/>
-		<applicationConfigurable id="editor.preferences.folding.hb"
-								 parentId="editor.preferences.folding"
-								 displayName="Handlebars/Mustache"
-								 instance="com.dmarcotte.handlebars.config.HbFoldingConfigurable"/>
-		<lang.psiStructureViewFactory language="Handlebars" implementationClass="com.dmarcotte.handlebars.structure.HbStructureViewFactory"/>
-		<annotator language="Handlebars" implementationClass="com.dmarcotte.handlebars.inspections.HbBlockMismatchInspection"/>
-	</extensions>
 </consulo-plugin>

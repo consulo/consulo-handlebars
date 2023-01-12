@@ -1,8 +1,8 @@
 package com.dmarcotte.handlebars.psi;
 
-import com.intellij.openapi.util.Condition;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.util.PsiTreeUtil;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.util.PsiTreeUtil;
+import consulo.util.lang.function.Condition;
 
 public class HbPsiUtil {
 
@@ -18,11 +18,11 @@ public class HbPsiUtil {
    * @return An ancestor of type {@link HbOpenBlockMustache} or null if none exists
    */
   public static HbOpenBlockMustache findParentOpenTagElement(PsiElement element) {
-    return (HbOpenBlockMustache)PsiTreeUtil.findFirstParent(element, true, new Condition<PsiElement>() {
+    return (HbOpenBlockMustache)PsiTreeUtil.findFirstParent(element, true, new consulo.util.lang.function.Condition<PsiElement>() {
       @Override
       public boolean value(PsiElement element) {
         return element != null
-               && element instanceof HbOpenBlockMustache;
+          && element instanceof HbOpenBlockMustache;
       }
     });
   }
@@ -39,11 +39,11 @@ public class HbPsiUtil {
    * @return An ancestor of type {@link HbCloseBlockMustache} or null if none exists
    */
   public static HbCloseBlockMustache findParentCloseTagElement(PsiElement element) {
-    return (HbCloseBlockMustache)PsiTreeUtil.findFirstParent(element, true, new Condition<PsiElement>() {
+    return (HbCloseBlockMustache)PsiTreeUtil.findFirstParent(element, true, new consulo.util.lang.function.Condition<PsiElement>() {
       @Override
       public boolean value(PsiElement element) {
         return element != null
-               && element instanceof HbCloseBlockMustache;
+          && element instanceof HbCloseBlockMustache;
       }
     });
   }
@@ -56,12 +56,12 @@ public class HbPsiUtil {
       @Override
       public boolean value(PsiElement element) {
         return element != null
-               && element instanceof HbStatements;
+          && element instanceof HbStatements;
       }
     });
 
     // we're a non-root statements if we're of type statements, and we have a statements parent
     return element instanceof HbStatements
-           && statementsParent != null;
+      && statementsParent != null;
   }
 }

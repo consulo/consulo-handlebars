@@ -2,7 +2,7 @@ package com.dmarcotte.handlebars.editor.actions;
 
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
-import com.intellij.lang.Language;
+import consulo.language.Language;
 
 public abstract class HbCommentActionTest extends HbActionHandlerTest {
 

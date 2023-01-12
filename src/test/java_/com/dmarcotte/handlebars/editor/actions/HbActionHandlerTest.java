@@ -3,16 +3,16 @@ package com.dmarcotte.handlebars.editor.actions;
 import javax.annotation.Nonnull;
 
 import com.dmarcotte.handlebars.file.HbFileType;
-import com.intellij.codeInsight.generation.CommentByBlockCommentHandler;
-import com.intellij.codeInsight.generation.CommentByLineCommentHandler;
-import com.intellij.openapi.actionSystem.IdeActions;
-import com.intellij.openapi.application.ApplicationManager;
-import com.intellij.openapi.command.CommandProcessor;
-import com.intellij.openapi.editor.actionSystem.EditorActionHandler;
-import com.intellij.openapi.editor.actionSystem.EditorActionManager;
-import com.intellij.openapi.editor.actionSystem.TypedAction;
-import com.intellij.openapi.editor.ex.EditorEx;
-import com.intellij.openapi.project.Project;
+import consulo.ide.impl.idea.codeInsight.generation.CommentByBlockCommentHandler;
+import consulo.ide.impl.idea.codeInsight.generation.CommentByLineCommentHandler;
+import consulo.project.Project;
+import consulo.ui.ex.action.IdeActions;
+import consulo.application.ApplicationManager;
+import consulo.undoRedo.CommandProcessor;
+import consulo.codeEditor.action.EditorActionHandler;
+import consulo.codeEditor.action.EditorActionManager;
+import consulo.codeEditor.action.TypedAction;
+import consulo.codeEditor.EditorEx;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 
 /**
@@ -83,7 +83,7 @@ public abstract class HbActionHandlerTest extends LightPlatformCodeInsightFixtur
     doExecuteActionTest(before, expected, new Runnable() {
       @Override
       public void run() {
-        new CommentByLineCommentHandler().invoke(myFixture.getProject(), myFixture.getEditor(), myFixture.getEditor().getCaretModel().getCurrentCaret(), myFixture.getFile());
+        new consulo.ide.impl.idea.codeInsight.generation.CommentByLineCommentHandler().invoke(myFixture.getProject(), myFixture.getEditor(), myFixture.getEditor().getCaretModel().getCurrentCaret(), myFixture.getFile());
       }
     });
   }
@@ -96,7 +96,7 @@ public abstract class HbActionHandlerTest extends LightPlatformCodeInsightFixtur
     doExecuteActionTest(before, expected, new Runnable() {
       @Override
       public void run() {
-        new CommentByBlockCommentHandler().invoke(myFixture.getProject(), myFixture.getEditor(), myFixture.getEditor().getCaretModel().getCurrentCaret(), myFixture.getFile());
+        new consulo.ide.impl.idea.codeInsight.generation.CommentByBlockCommentHandler().invoke(myFixture.getProject(), myFixture.getEditor(), myFixture.getEditor().getCaretModel().getCurrentCaret(), myFixture.getFile());
       }
     });
   }

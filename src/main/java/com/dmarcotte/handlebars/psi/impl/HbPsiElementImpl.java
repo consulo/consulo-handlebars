@@ -1,12 +1,12 @@
 package com.dmarcotte.handlebars.psi.impl;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.psi.HbPsiElement;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.intellij.lang.ASTNode;
-import com.intellij.navigation.ItemPresentation;
-import com.intellij.navigation.ItemPresentationProviders;
+import consulo.language.ast.ASTNode;
+import consulo.language.impl.psi.ASTWrapperPsiElement;
+import consulo.navigation.ItemPresentation;
+import consulo.navigation.ItemPresentationProvider;
+
+import javax.annotation.Nonnull;
 
 public class HbPsiElementImpl extends ASTWrapperPsiElement implements HbPsiElement {
   public HbPsiElementImpl(@Nonnull ASTNode astNode) {
@@ -15,6 +15,6 @@ public class HbPsiElementImpl extends ASTWrapperPsiElement implements HbPsiEleme
 
   @Override
   public ItemPresentation getPresentation() {
-    return ItemPresentationProviders.getItemPresentation(this);
+    return ItemPresentationProvider.getItemPresentation(this);
   }
 }

@@ -1,9 +1,9 @@
 package com.dmarcotte.handlebars.parsing;
 
 import com.dmarcotte.handlebars.HbLanguage;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.IFileElementType;
+import consulo.language.ast.TokenSet;
 
 public class HbTokenTypes {
 
@@ -14,7 +14,7 @@ public class HbTokenTypes {
   }
 
   public static final IElementType BLOCK_WRAPPER = new HbCompositeElementType("BLOCK_WRAPPER");
-    // used to delineate blocks in the PSI tree. The formatter requires this extra structure.
+  // used to delineate blocks in the PSI tree. The formatter requires this extra structure.
   public static final IElementType OPEN_BLOCK_STACHE = new HbCompositeElementType("OPEN_BLOCK_STACHE");
   public static final IElementType OPEN_INVERSE_BLOCK_STACHE = new HbCompositeElementType("OPEN_INVERSE_BLOCK_STACHE");
   public static final IElementType CLOSE_BLOCK_STACHE = new HbCompositeElementType("CLOSE_BLOCK_STACHE");

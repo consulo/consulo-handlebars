@@ -1,11 +1,11 @@
 package com.dmarcotte.handlebars.psi.impl;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.psi.HbPartial;
 import com.dmarcotte.handlebars.psi.HbPartialName;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.util.PsiTreeUtil;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.util.PsiTreeUtil;
+
+import javax.annotation.Nonnull;
 
 public class HbPartialImpl extends HbMustacheImpl implements HbPartial {
   public HbPartialImpl(@Nonnull ASTNode astNode) {

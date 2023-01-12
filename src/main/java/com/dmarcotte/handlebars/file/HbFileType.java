@@ -2,15 +2,15 @@ package com.dmarcotte.handlebars.file;
 
 import com.dmarcotte.handlebars.HbIcons;
 import com.dmarcotte.handlebars.HbLanguage;
-import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.openapi.fileTypes.TemplateLanguageFileType;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
 import consulo.handlebars.localize.HbLocalize;
+import consulo.language.Language;
+import consulo.language.file.LanguageFileType;
+import consulo.language.template.TemplateDataLanguageMappings;
+import consulo.language.template.TemplateLanguageFileType;
 import consulo.localize.LocalizeValue;
+import consulo.project.Project;
 import consulo.ui.image.Image;
+import consulo.virtualFileSystem.VirtualFile;
 import org.jetbrains.annotations.NonNls;
 
 import javax.annotation.Nonnull;

@@ -2,9 +2,9 @@ package com.dmarcotte.handlebars.parsing;
 
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.exception.ShouldNotHappenException;
-import com.intellij.lang.PsiBuilder;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.psi.tree.TokenSet;
+import consulo.language.ast.IElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.parser.PsiBuilder;
 
 import static com.dmarcotte.handlebars.parsing.HbTokenTypes.*;
 
@@ -22,7 +22,8 @@ class HbParsing {
 
   // the set of tokens which, if we encounter them while in a bad state, we'll try to
   // resume parsing from them
-  private static final TokenSet RECOVERY_SET = TokenSet.create(OPEN, OPEN_BLOCK, OPEN_ENDBLOCK, OPEN_INVERSE, OPEN_PARTIAL, OPEN_UNESCAPED, CONTENT);
+  private static final TokenSet RECOVERY_SET =
+    TokenSet.create(OPEN, OPEN_BLOCK, OPEN_ENDBLOCK, OPEN_INVERSE, OPEN_PARTIAL, OPEN_UNESCAPED, CONTENT);
 
   public HbParsing(final PsiBuilder builder) {
     this.builder = builder;
@@ -120,7 +121,7 @@ class HbParsing {
       lookAheadMarker.rollbackTo();
 
       if (isSimpleInverse) {
-                /* HB_CUSTOMIZATION */
+        /* HB_CUSTOMIZATION */
         // leave this to be caught be the simpleInverseParser
         inverseBlockStartMarker.rollbackTo();
         return false;
@@ -233,7 +234,7 @@ class HbParsing {
       // check for the "{{else" version
       regularInverseMarker.rollbackTo();
       if (!parseLeafToken(builder, OPEN)
-          || !parseLeafToken(builder, ELSE)) {
+        || !parseLeafToken(builder, ELSE)) {
         openInverseBlockStacheMarker.drop();
         return false;
       }
@@ -336,7 +337,7 @@ class HbParsing {
     // try and parse "{{^"
     PsiBuilder.Marker regularInverseMarker = builder.mark();
     if (!parseLeafToken(builder, OPEN_INVERSE)
-        || !parseLeafToken(builder, CLOSE)) {
+      || !parseLeafToken(builder, CLOSE)) {
       regularInverseMarker.rollbackTo();
       isSimpleInverse = false;
     }
@@ -348,9 +349,9 @@ class HbParsing {
     // if we didn't find "{{^", check for "{{else"
     PsiBuilder.Marker elseInverseMarker = builder.mark();
     if (!isSimpleInverse
-        && (!parseLeafToken(builder, OPEN)
-            || !parseLeafToken(builder, ELSE)
-            || !parseLeafToken(builder, CLOSE))) {
+      && (!parseLeafToken(builder, OPEN)
+      || !parseLeafToken(builder, ELSE)
+      || !parseLeafToken(builder, CLOSE))) {
       elseInverseMarker.rollbackTo();
       isSimpleInverse = false;
     }
@@ -384,8 +385,8 @@ class HbParsing {
     if (!parsePath(builder)) {
       // not a path, try to parse DATA
       if (builder.getTokenType() == DATA_PREFIX
-          && parseLeafToken(builder, DATA_PREFIX)
-          && parseLeafToken(builder, HbTokenTypes.DATA)) {
+        && parseLeafToken(builder, DATA_PREFIX)
+        && parseLeafToken(builder, HbTokenTypes.DATA)) {
         inMustacheMarker.drop();
         return true;
       }
@@ -412,7 +413,7 @@ class HbParsing {
         }
         else {
           if (hashStartPos < builder.getCurrentOffset()) {
-                        /* HB_CUSTOMIZATION */
+            /* HB_CUSTOMIZATION */
             // managed to partially parse the hash.  Don't rollback so that
             // we can keep the errors
             paramsHashMarker.drop();
@@ -585,8 +586,8 @@ class HbParsing {
    */
   private boolean parseHashSegment(PsiBuilder builder) {
     return parseLeafToken(builder, ID)
-           && parseLeafToken(builder, EQUALS)
-           && parseParam(builder);
+      && parseLeafToken(builder, EQUALS)
+      && parseParam(builder);
   }
 
   /**
@@ -622,7 +623,7 @@ class HbParsing {
   private boolean parsePathSegments(PsiBuilder builder) {
     PsiBuilder.Marker pathSegmentsMarker = builder.mark();
 
-        /* HB_CUSTOMIZATION: see isHashNextLookAhead docs for details */
+    /* HB_CUSTOMIZATION: see isHashNextLookAhead docs for details */
     if (isHashNextLookAhead(builder)) {
       pathSegmentsMarker.rollbackTo();
       return false;
@@ -640,7 +641,7 @@ class HbParsing {
   }
 
   /**
-   * See {@link #parsePathSegments(com.intellij.lang.PsiBuilder)} for more info on this method
+   * See {@link #parsePathSegments(PsiBuilder)} for more info on this method
    */
   private void parsePathSegmentsPrime(PsiBuilder builder) {
     PsiBuilder.Marker pathSegmentsPrimeMarker = builder.mark();
@@ -651,7 +652,7 @@ class HbParsing {
       return;
     }
 
-        /* HB_CUSTOMIZATION*/
+    /* HB_CUSTOMIZATION*/
     if (isHashNextLookAhead(builder)) {
       pathSegmentsPrimeMarker.rollbackTo();
       return;
@@ -716,8 +717,8 @@ class HbParsing {
     if (builder.getTokenType() != expectedToken) {
       PsiBuilder.Marker unexpectedTokensMarker = builder.mark();
       while (!builder.eof()
-             && builder.getTokenType() != expectedToken
-             && !RECOVERY_SET.contains(builder.getTokenType())) {
+        && builder.getTokenType() != expectedToken
+        && !RECOVERY_SET.contains(builder.getTokenType())) {
         builder.advanceLexer();
       }
 

@@ -1,21 +1,29 @@
 package com.dmarcotte.handlebars.file;
 
+import com.dmarcotte.handlebars.HbLanguage;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.file.FileViewProvider;
+import consulo.language.file.LanguageFileViewProviderFactory;
+import consulo.language.psi.PsiManager;
+import consulo.virtualFileSystem.VirtualFile;
+
 import javax.annotation.Nonnull;
 
-import com.intellij.lang.Language;
-import com.intellij.openapi.vfs.VirtualFile;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.FileViewProviderFactory;
-import com.intellij.psi.PsiManager;
-
-
-public class HbFileViewProviderFactory implements FileViewProviderFactory {
+@ExtensionImpl
+public class HbFileViewProviderFactory implements LanguageFileViewProviderFactory {
   @Override
   public FileViewProvider createFileViewProvider(@Nonnull VirtualFile virtualFile,
                                                  Language language,
                                                  @Nonnull PsiManager psiManager,
                                                  boolean physical) {
     return new HbFileViewProvider(psiManager, virtualFile, physical);
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 }
 

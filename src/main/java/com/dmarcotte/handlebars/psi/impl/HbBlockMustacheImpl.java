@@ -2,8 +2,9 @@ package com.dmarcotte.handlebars.psi.impl;
 
 import com.dmarcotte.handlebars.psi.HbBlockMustache;
 import com.dmarcotte.handlebars.psi.HbPath;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.util.PsiTreeUtil;
+import consulo.language.ast.ASTNode;
+import consulo.language.psi.util.PsiTreeUtil;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

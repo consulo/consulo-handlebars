@@ -2,18 +2,18 @@ package com.dmarcotte.handlebars.pages;
 
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbHighlighter;
-import com.dmarcotte.handlebars.HbIcons;
-import com.intellij.openapi.editor.colors.TextAttributesKey;
-import com.intellij.openapi.fileTypes.SyntaxHighlighter;
-import com.intellij.openapi.options.colors.AttributesDescriptor;
-import com.intellij.openapi.options.colors.ColorDescriptor;
-import com.intellij.openapi.options.colors.ColorSettingsPage;
-import javax.annotation.Nonnull;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.colorScheme.TextAttributesKey;
+import consulo.colorScheme.setting.AttributesDescriptor;
+import consulo.colorScheme.setting.ColorDescriptor;
+import consulo.language.editor.colorScheme.setting.ColorSettingsPage;
+import consulo.language.editor.highlight.SyntaxHighlighter;
 
-import javax.swing.*;
+import javax.annotation.Nonnull;
 import java.util.Map;
 import java.util.Set;
 
+@ExtensionImpl
 public class HbColorsPage implements ColorSettingsPage {
   private static final AttributesDescriptor[] ATTRS;
 
@@ -39,11 +39,6 @@ public class HbColorsPage implements ColorSettingsPage {
   }
 
   @Nonnull
-  public ColorDescriptor[] getColorDescriptors() {
-    return ColorDescriptor.EMPTY_ARRAY;
-  }
-
-  @Nonnull
   public SyntaxHighlighter getHighlighter() {
     return new HbHighlighter();
   }
@@ -51,13 +46,13 @@ public class HbColorsPage implements ColorSettingsPage {
   @Nonnull
   public String getDemoText() {
     return "{{identifier my-val=true my-other-val=42 my-string-val=\"a string\"}}\n" +
-           "{{! this is a comment }}\n" +
-           "{{!--\n" +
-           "    this is a Handlebars block comment,\n" +
-           "    which can comment out mustache expressions: {{ignored}}\n" +
-           "--}}\n" +
-           "{{@data}}\n" +
-           "\\{{escaped}}\n"
+      "{{! this is a comment }}\n" +
+      "{{!--\n" +
+      "    this is a Handlebars block comment,\n" +
+      "    which can comment out mustache expressions: {{ignored}}\n" +
+      "--}}\n" +
+      "{{@data}}\n" +
+      "\\{{escaped}}\n"
       ;
   }
 

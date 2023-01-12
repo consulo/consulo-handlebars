@@ -1,9 +1,9 @@
 package com.dmarcotte.handlebars;
 
-import com.intellij.ide.highlighter.HtmlFileType;
-import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.LanguageFileType;
-import com.intellij.psi.templateLanguages.TemplateLanguage;
+import consulo.language.Language;
+import consulo.language.file.LanguageFileType;
+import consulo.language.template.TemplateLanguage;
+import consulo.xml.ide.highlighter.HtmlFileType;
 
 public class HbLanguage extends Language implements TemplateLanguage {
   public static final HbLanguage INSTANCE = new HbLanguage();

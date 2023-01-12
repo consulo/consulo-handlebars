@@ -2,11 +2,14 @@ package com.dmarcotte.handlebars.editor.comments;
 
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
-import com.intellij.lang.Commenter;
-import com.intellij.lang.Language;
-import com.intellij.lang.LanguageCommenters;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Commenter;
+import consulo.language.Language;
+
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
+@ExtensionImpl
 public class HbCommenter implements Commenter {
 
   private static final Commenter ourHandlebarsCommenter = new HandlebarsCommenter();
@@ -50,6 +53,12 @@ public class HbCommenter implements Commenter {
       return ourHandlebarsCommenter;
     }
 
-    return LanguageCommenters.INSTANCE.forLanguage(commenterLanguage);
+    return Commenter.forLanguage(commenterLanguage);
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 }

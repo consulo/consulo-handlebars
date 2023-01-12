@@ -1,7 +1,7 @@
 package com.dmarcotte.handlebars.config;
 
-import com.intellij.ide.util.PropertiesComponent;
-import com.intellij.lang.Language;
+import consulo.application.ApplicationPropertiesComponent;
+import consulo.language.Language;
 
 import static com.dmarcotte.handlebars.config.Property.*;
 
@@ -45,12 +45,12 @@ public class HbConfig {
   }
 
   private static String getStringPropertyValue(Property property) {
-    return new PropertyAccessor(PropertiesComponent.getInstance())
+    return new PropertyAccessor(ApplicationPropertiesComponent.getInstance())
       .getPropertyValue(property);
   }
 
   private static void setStringPropertyValue(Property property, String value) {
-    new PropertyAccessor(PropertiesComponent.getInstance())
+    new PropertyAccessor(ApplicationPropertiesComponent.getInstance())
       .setPropertyValue(property, value);
   }
 

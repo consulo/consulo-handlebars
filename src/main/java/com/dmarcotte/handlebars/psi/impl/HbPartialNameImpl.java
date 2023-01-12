@@ -1,7 +1,8 @@
 package com.dmarcotte.handlebars.psi.impl;
 
 import com.dmarcotte.handlebars.psi.HbPartialName;
-import com.intellij.lang.ASTNode;
+import consulo.language.ast.ASTNode;
+
 import javax.annotation.Nonnull;
 
 public class HbPartialNameImpl extends HbPsiElementImpl implements HbPartialName {

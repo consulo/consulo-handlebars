@@ -1,11 +1,11 @@
 package com.dmarcotte.handlebars.config;
 
+import consulo.xml.lang.html.HTMLLanguage;
+
 import javax.annotation.Nonnull;
 
-import com.intellij.lang.html.HTMLLanguage;
-
 /**
- * Formalizes the properties which we will persist using {@link com.intellij.ide.util.PropertiesComponent}
+ * Formalizes the properties which we will persist using {@link consulo.application.ApplicationPropertiesComponent}
  */
 enum Property {
   AUTO_GENERATE_CLOSE_TAG {
@@ -70,7 +70,7 @@ enum Property {
   public static final String DISABLED = "disabled";
 
   /**
-   * The String which will actually be persisted in a user's properties using {@link com.intellij.ide.util.PropertiesComponent}.
+   * The String which will actually be persisted in a user's properties using {@link consulo.application.ApplicationPropertiesComponent}.
    * <p/>
    * This value must be unique amongst Property entries
    * <p/>

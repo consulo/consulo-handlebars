@@ -1,9 +1,12 @@
 package com.dmarcotte.handlebars.file;
 
-import com.intellij.openapi.fileTypes.FileTypeConsumer;
-import com.intellij.openapi.fileTypes.FileTypeFactory;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.virtualFileSystem.fileType.FileTypeConsumer;
+import consulo.virtualFileSystem.fileType.FileTypeFactory;
+
 import javax.annotation.Nonnull;
 
+@ExtensionImpl
 public class HbFileTypeFactory extends FileTypeFactory {
   @Override
   public void createFileTypes(@Nonnull FileTypeConsumer consumer) {

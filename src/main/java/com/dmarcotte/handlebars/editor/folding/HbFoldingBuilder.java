@@ -1,23 +1,27 @@
 package com.dmarcotte.handlebars.editor.folding;
 
+import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.dmarcotte.handlebars.parsing.HbTokenTypes;
 import com.dmarcotte.handlebars.psi.HbBlockWrapper;
 import com.dmarcotte.handlebars.psi.HbCloseBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.folding.FoldingBuilder;
-import com.intellij.lang.folding.FoldingDescriptor;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.project.DumbAware;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.application.dumb.DumbAware;
+import consulo.document.Document;
+import consulo.document.util.TextRange;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.editor.folding.FoldingBuilder;
+import consulo.language.editor.folding.FoldingDescriptor;
+import consulo.language.psi.PsiElement;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.List;
 
+@ExtensionImpl
 public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
 
   @Nonnull
@@ -40,8 +44,8 @@ public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
       // comment might be unclosed, so do a bit of sanity checking on its length and whether or not it's
       // got the requisite open/close tags before we allow folding
       if (commentText.length() > 5
-          && commentText.substring(0, 3).equals("{{!")
-          && commentText.substring(commentText.length() - 2, commentText.length()).equals("}}")) {
+        && commentText.substring(0, 3).equals("{{!")
+        && commentText.substring(commentText.length() - 2, commentText.length()).equals("}}")) {
         TextRange range = new TextRange(commentNode.getTextRange().getStartOffset() + 3, commentNode.getTextRange().getEndOffset() - 2);
         descriptors.add(new FoldingDescriptor(commentNode, range));
       }
@@ -83,7 +87,7 @@ public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
    */
   private PsiElement getOpenBlockCloseStacheElement(PsiElement psiElement) {
     if (psiElement == null
-        || !(psiElement instanceof HbOpenBlockMustache)) {
+      || !(psiElement instanceof HbOpenBlockMustache)) {
       return null;
     }
 
@@ -131,5 +135,11 @@ public class HbFoldingBuilder implements FoldingBuilder, DumbAware {
   private static boolean isSingleLine(PsiElement element, Document document) {
     TextRange range = element.getTextRange();
     return document.getLineNumber(range.getStartOffset()) == document.getLineNumber(range.getEndOffset());
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 }

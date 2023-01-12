@@ -1,26 +1,26 @@
 package com.dmarcotte.handlebars.inspections;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.psi.HbBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.dmarcotte.handlebars.psi.HbPath;
-import com.intellij.codeInsight.FileModificationService;
-import com.intellij.codeInsight.intention.IntentionAction;
-import com.intellij.openapi.editor.Document;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.project.Project;
-import com.intellij.openapi.util.Condition;
-import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiDocumentManager;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.PsiWhiteSpace;
-import com.intellij.psi.util.PsiTreeUtil;
-import com.intellij.util.IncorrectOperationException;
+import consulo.codeEditor.Editor;
+import consulo.document.Document;
+import consulo.document.util.TextRange;
+import consulo.language.editor.FileModificationService;
+import consulo.language.editor.intention.SyntheticIntentionAction;
+import consulo.language.psi.PsiDocumentManager;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.psi.PsiWhiteSpace;
+import consulo.language.psi.util.PsiTreeUtil;
+import consulo.language.util.IncorrectOperationException;
+import consulo.project.Project;
+import consulo.util.lang.function.Condition;
 
-class HbBlockMismatchFix implements IntentionAction {
+import javax.annotation.Nonnull;
+
+class HbBlockMismatchFix implements SyntheticIntentionAction {
   private final boolean myUpdateOpenMustache;
   private final String myCorrectedName;
   private final String myOriginalName;
@@ -39,12 +39,6 @@ class HbBlockMismatchFix implements IntentionAction {
   @Nonnull
   @Override
   public String getText() {
-    return getName();
-  }
-
-  @Nonnull
-  @Override
-  public String getFamilyName() {
     return getName();
   }
 
@@ -97,7 +91,7 @@ class HbBlockMismatchFix implements IntentionAction {
 
   private String getName() {
     return myUpdateOpenMustache
-           ? HbBundle.message("hb.block.mismatch.intention.rename.open", myOriginalName, myCorrectedName)
-           : HbBundle.message("hb.block.mismatch.intention.rename.close", myOriginalName, myCorrectedName);
+      ? HbBundle.message("hb.block.mismatch.intention.rename.open", myOriginalName, myCorrectedName)
+      : HbBundle.message("hb.block.mismatch.intention.rename.close", myOriginalName, myCorrectedName);
   }
 }

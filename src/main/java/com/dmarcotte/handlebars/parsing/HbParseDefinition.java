@@ -1,21 +1,31 @@
 package com.dmarcotte.handlebars.parsing;
 
-import javax.annotation.Nonnull;
-
+import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.psi.HbPsiFile;
 import com.dmarcotte.handlebars.psi.impl.*;
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.ParserDefinition;
-import com.intellij.lang.PsiParser;
-import com.intellij.lexer.Lexer;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiFile;
-import com.intellij.psi.tree.IFileElementType;
-import com.intellij.psi.tree.TokenSet;
-import consulo.lang.LanguageVersion;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.language.Language;
+import consulo.language.ast.ASTNode;
+import consulo.language.ast.IFileElementType;
+import consulo.language.ast.TokenSet;
+import consulo.language.file.FileViewProvider;
+import consulo.language.lexer.Lexer;
+import consulo.language.parser.ParserDefinition;
+import consulo.language.parser.PsiParser;
+import consulo.language.psi.PsiElement;
+import consulo.language.psi.PsiFile;
+import consulo.language.version.LanguageVersion;
 
+import javax.annotation.Nonnull;
+
+@ExtensionImpl
 public class HbParseDefinition implements ParserDefinition {
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
+  }
+
   @Nonnull
   public Lexer createLexer(LanguageVersion languageVersion) {
     return new _HbLexer();

@@ -1,6 +1,10 @@
 package com.dmarcotte.handlebars.editor.comments;
 
-import com.intellij.lang.Commenter;
+import com.dmarcotte.handlebars.HbLanguage;
+import consulo.language.Commenter;
+import consulo.language.Language;
+
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
@@ -35,5 +39,11 @@ class HandlebarsCommenter implements Commenter {
   @Override
   public String getCommentedBlockCommentSuffix() {
     return null;
+  }
+
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
   }
 }

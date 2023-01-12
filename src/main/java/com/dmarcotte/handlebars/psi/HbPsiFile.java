@@ -1,13 +1,13 @@
 package com.dmarcotte.handlebars.psi;
 
-import javax.annotation.Nonnull;
-
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.file.HbFileType;
-import com.intellij.extapi.psi.PsiFileBase;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.psi.FileViewProvider;
-import com.intellij.psi.impl.PsiFileEx;
+import consulo.language.file.FileViewProvider;
+import consulo.language.impl.psi.PsiFileBase;
+import consulo.language.psi.PsiFileEx;
+import consulo.virtualFileSystem.fileType.FileType;
+
+import javax.annotation.Nonnull;
 
 public class HbPsiFile extends PsiFileBase implements PsiFileEx {
 

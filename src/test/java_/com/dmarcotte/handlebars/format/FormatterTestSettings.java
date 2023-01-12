@@ -2,8 +2,8 @@ package com.dmarcotte.handlebars.format;
 
 import com.dmarcotte.handlebars.config.HbConfig;
 import com.intellij.ide.highlighter.HtmlFileType;
-import com.intellij.openapi.project.Project;
-import com.intellij.psi.codeStyle.CodeStyleSettingsManager;
+import consulo.project.Project;
+import consulo.language.codeStyle.CodeStyleSettingsManager;
 
 /**
  * Provides a setup and tear down for tests to use to set up the app test fixture

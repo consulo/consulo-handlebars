@@ -1,6 +1,6 @@
 package com.dmarcotte.handlebars.config;
 
-import com.intellij.ide.util.PropertiesComponent;
+import consulo.component.PropertiesComponent;
 
 /**
  * Class responsible for reads and writes of properties
@@ -9,8 +9,8 @@ class PropertyAccessor {
 
   private final PropertiesComponent myPropertiesComponent;
 
-  PropertyAccessor(PropertiesComponent myPropertiesComponent) {
-    this.myPropertiesComponent = myPropertiesComponent;
+  PropertyAccessor(PropertiesComponent propertiesComponent) {
+    myPropertiesComponent = propertiesComponent;
   }
 
   String getPropertyValue(Property property) {

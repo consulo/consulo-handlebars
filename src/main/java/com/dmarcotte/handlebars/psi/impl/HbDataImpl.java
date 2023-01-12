@@ -1,7 +1,8 @@
 package com.dmarcotte.handlebars.psi.impl;
 
 import com.dmarcotte.handlebars.psi.HbData;
-import com.intellij.lang.ASTNode;
+import consulo.language.ast.ASTNode;
+
 import javax.annotation.Nonnull;
 
 public class HbDataImpl extends HbPsiElementImpl implements HbData {

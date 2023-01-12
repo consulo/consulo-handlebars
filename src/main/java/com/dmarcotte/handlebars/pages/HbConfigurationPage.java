@@ -1,29 +1,28 @@
 package com.dmarcotte.handlebars.pages;
 
+import com.dmarcotte.handlebars.HbBundle;
+import com.dmarcotte.handlebars.HbLanguage;
+import com.dmarcotte.handlebars.config.HbConfig;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.configurable.ApplicationConfigurable;
+import consulo.configurable.ConfigurationException;
+import consulo.configurable.SearchableConfigurable;
+import consulo.language.Language;
+import consulo.language.template.TemplateDataLanguageMappings;
+import consulo.ui.ex.awt.ListCellRendererWrapper;
+import consulo.ui.ex.awtUnsafe.TargetAWT;
+import consulo.virtualFileSystem.fileType.FileType;
+import org.jetbrains.annotations.Nls;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.swing.*;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JList;
-import javax.swing.JPanel;
-
-import org.jetbrains.annotations.Nls;
-import com.dmarcotte.handlebars.HbBundle;
-import com.dmarcotte.handlebars.HbLanguage;
-import com.dmarcotte.handlebars.config.HbConfig;
-import com.intellij.lang.Language;
-import com.intellij.openapi.fileTypes.FileType;
-import com.intellij.openapi.options.ConfigurationException;
-import com.intellij.openapi.options.SearchableConfigurable;
-import com.intellij.psi.templateLanguages.TemplateDataLanguageMappings;
-import consulo.awt.TargetAWT;
-
-public class HbConfigurationPage implements SearchableConfigurable {
+@ExtensionImpl
+public class HbConfigurationPage implements SearchableConfigurable, ApplicationConfigurable {
   private JCheckBox myAutoGenerateClosingTagCheckBox;
   private JPanel myWholePanel;
   private JCheckBox myFormattingCheckBox;
@@ -32,23 +31,19 @@ public class HbConfigurationPage implements SearchableConfigurable {
   @Nonnull
   @Override
   public String getId() {
-    return "editor.preferences.handlebarsOptions";
+    return "editor.hb";
   }
 
+  @Nullable
   @Override
-  public Runnable enableSearch(String option) {
-    return null;
+  public String getParentId() {
+    return "editor";
   }
 
   @Nls
   @Override
   public String getDisplayName() {
     return HbBundle.message("hb.pages.options.title");
-  }
-
-  @Override
-  public String getHelpTopic() {
-    return null;
   }
 
   @Override
@@ -59,8 +54,8 @@ public class HbConfigurationPage implements SearchableConfigurable {
   @Override
   public boolean isModified() {
     return myAutoGenerateClosingTagCheckBox.isSelected() != HbConfig.isAutoGenerateCloseTagEnabled()
-           || myFormattingCheckBox.isSelected() != HbConfig.isFormattingEnabled()
-           || !((Language)myCommenterLanguage.getSelectedItem()).getID().equals(HbConfig.getCommenterLanguage().getID());
+      || myFormattingCheckBox.isSelected() != HbConfig.isFormattingEnabled()
+      || !((Language)myCommenterLanguage.getSelectedItem()).getID().equals(HbConfig.getCommenterLanguage().getID());
   }
 
   @Override
@@ -96,7 +91,7 @@ public class HbConfigurationPage implements SearchableConfigurable {
 
     // When com.intellij.openapi.fileTypes.impl.FileTypePatternDialog#FileTypePatternDialog updates to fix this warning, we make the same update here
 
-    myCommenterLanguage.setRenderer(new com.intellij.ui.ListCellRendererWrapper() {
+    myCommenterLanguage.setRenderer(new ListCellRendererWrapper() {
       @Override
       public void customize(JList list, Object value, int index, boolean selected, boolean hasFocus) {
         setText(value == null ? "" : ((Language)value).getDisplayName());
@@ -109,9 +104,5 @@ public class HbConfigurationPage implements SearchableConfigurable {
       }
     });
     myCommenterLanguage.setSelectedItem(commentLanguage);
-  }
-
-  @Override
-  public void disposeUIResources() {
   }
 }

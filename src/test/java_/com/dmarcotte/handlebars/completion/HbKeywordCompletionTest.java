@@ -1,10 +1,8 @@
 package com.dmarcotte.handlebars.completion;
 
 import com.dmarcotte.handlebars.file.HbFileType;
-import com.intellij.codeInsight.completion.CompletionType;
+import consulo.language.editor.completion.CompletionType;
 import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
-
-import java.util.Arrays;
 
 public abstract class HbKeywordCompletionTest extends LightPlatformCodeInsightFixtureTestCase {
   public void doBasicTest(String text, String... expected) {

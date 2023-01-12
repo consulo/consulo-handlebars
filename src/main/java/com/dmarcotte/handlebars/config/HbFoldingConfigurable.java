@@ -1,46 +1,49 @@
 package com.dmarcotte.handlebars.config;
 
-import org.jetbrains.annotations.Nls;
-import javax.annotation.Nullable;
 import com.dmarcotte.handlebars.HbBundle;
-import com.intellij.openapi.options.BeanConfigurable;
-import com.intellij.openapi.options.Configurable;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.configurable.ApplicationConfigurable;
+import consulo.configurable.BeanConfigurable;
+import org.jetbrains.annotations.Nls;
 
-public class HbFoldingConfigurable extends BeanConfigurable<HbFoldingConfigurable.HbCodeFoldingOptionsBean> implements Configurable
-{
-	@SuppressWarnings("UnusedDeclaration") // the properties in this class are accessed using reflection by the parent
-	public static class HbCodeFoldingOptionsBean
-	{
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
-		public boolean isAutoCollapseBlocks()
-		{
-			return HbConfig.isAutoCollapseBlocksEnabled();
-		}
+@ExtensionImpl
+public class HbFoldingConfigurable extends BeanConfigurable<HbFoldingConfigurable.HbCodeFoldingOptionsBean> implements ApplicationConfigurable {
+  @SuppressWarnings("UnusedDeclaration") // the properties in this class are accessed using reflection by the parent
+  public static class HbCodeFoldingOptionsBean {
 
-		public void setAutoCollapseBlocks(boolean value)
-		{
-			HbConfig.setAutoCollapseBlocks(value);
-		}
-	}
+    public boolean isAutoCollapseBlocks() {
+      return HbConfig.isAutoCollapseBlocksEnabled();
+    }
 
-	public HbFoldingConfigurable()
-	{
-		super(new HbCodeFoldingOptionsBean());
+    public void setAutoCollapseBlocks(boolean value) {
+      HbConfig.setAutoCollapseBlocks(value);
+    }
+  }
 
-		checkBox("autoCollapseBlocks", HbBundle.message("hb.pages.folding.auto.collapse.blocks"));
-	}
+  public HbFoldingConfigurable() {
+    super(new HbCodeFoldingOptionsBean());
 
-	@Nls
-	@Override
-	public String getDisplayName()
-	{
-		return null;
-	}
+    checkBox("autoCollapseBlocks", HbBundle.message("hb.pages.folding.auto.collapse.blocks"));
+  }
 
-	@Nullable
-	@Override
-	public String getHelpTopic()
-	{
-		return null;
-	}
+  @Nonnull
+  @Override
+  public String getId() {
+    return "editor.preferences.folding.hb";
+  }
+
+  @Nullable
+  @Override
+  public String getParentId() {
+    return "editor.preferences.folding";
+  }
+
+  @Nls
+  @Override
+  public String getDisplayName() {
+    return HbBundle.message("hb.pages.options.title");
+  }
 }

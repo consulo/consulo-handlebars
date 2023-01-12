@@ -1,30 +1,36 @@
 package com.dmarcotte.handlebars.structure;
 
+import com.dmarcotte.handlebars.HbLanguage;
+import com.dmarcotte.handlebars.psi.HbPsiFile;
+import consulo.annotation.component.ExtensionImpl;
+import consulo.codeEditor.Editor;
+import consulo.fileEditor.structureView.StructureViewBuilder;
+import consulo.fileEditor.structureView.StructureViewModel;
+import consulo.fileEditor.structureView.TreeBasedStructureViewBuilder;
+import consulo.language.Language;
+import consulo.language.editor.structureView.PsiStructureViewFactory;
+import consulo.language.psi.PsiFile;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import com.dmarcotte.handlebars.psi.HbPsiFile;
-import com.intellij.ide.structureView.StructureViewBuilder;
-import com.intellij.ide.structureView.StructureViewModel;
-import com.intellij.ide.structureView.TreeBasedStructureViewBuilder;
-import com.intellij.lang.PsiStructureViewFactory;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.psi.PsiFile;
+@ExtensionImpl
+public class HbStructureViewFactory implements PsiStructureViewFactory {
+  @Nullable
+  @Override
+  public StructureViewBuilder getStructureViewBuilder(final PsiFile psiFile) {
+    return new TreeBasedStructureViewBuilder() {
+      @Nonnull
+      @Override
+      public StructureViewModel createStructureViewModel(Editor editor) {
+        return new HbStructureViewModel((HbPsiFile)psiFile);
+      }
+    };
+  }
 
-public class HbStructureViewFactory implements PsiStructureViewFactory
-{
-	@Nullable
-	@Override
-	public StructureViewBuilder getStructureViewBuilder(final PsiFile psiFile)
-	{
-		return new TreeBasedStructureViewBuilder()
-		{
-			@Nonnull
-			@Override
-			public StructureViewModel createStructureViewModel(Editor editor)
-			{
-				return new HbStructureViewModel((HbPsiFile) psiFile);
-			}
-		};
-	}
+  @Nonnull
+  @Override
+  public Language getLanguage() {
+    return HbLanguage.INSTANCE;
+  }
 }
