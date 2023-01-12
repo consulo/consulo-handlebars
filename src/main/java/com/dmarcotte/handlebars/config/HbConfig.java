@@ -3,6 +3,8 @@ package com.dmarcotte.handlebars.config;
 import consulo.application.ApplicationPropertiesComponent;
 import consulo.language.Language;
 
+import javax.annotation.Nullable;
+
 import static com.dmarcotte.handlebars.config.Property.*;
 
 public class HbConfig {
@@ -31,10 +33,24 @@ public class HbConfig {
     setBooleanPropertyValue(AUTO_COLLAPSE_BLOCKS, enabled);
   }
 
+  @Nullable
   public static Language getCommenterLanguage() {
     return Language.findLanguageByID(getStringPropertyValue(COMMENTER_LANGUAGE_ID));
   }
 
+  @Nullable
+  public static String getCommenterLanguageID() {
+    return getStringPropertyValue(COMMENTER_LANGUAGE_ID);
+  }
+
+  public static void setCommenterLanguageID(String language) {
+    if (language == null) {
+      setStringPropertyValue(COMMENTER_LANGUAGE_ID, null);
+    }
+    else {
+      setStringPropertyValue(COMMENTER_LANGUAGE_ID, language);
+    }
+  }
   public static void setCommenterLanguage(Language language) {
     if (language == null) {
       setStringPropertyValue(COMMENTER_LANGUAGE_ID, null);

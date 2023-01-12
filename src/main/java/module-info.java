@@ -6,10 +6,6 @@ module com.dmarcotte.handlebars {
   requires consulo.ide.api;
   requires com.intellij.xml;
 
-  // TODO remove in future
-  requires forms.rt;
-  requires java.desktop;
-
   exports com.dmarcotte.handlebars;
   exports com.dmarcotte.handlebars.completion;
   exports com.dmarcotte.handlebars.config;
