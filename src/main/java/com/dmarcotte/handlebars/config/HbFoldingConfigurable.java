@@ -1,10 +1,10 @@
 package com.dmarcotte.handlebars.config;
 
-import com.dmarcotte.handlebars.HbBundle;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.configurable.ApplicationConfigurable;
 import consulo.configurable.SimpleConfigurableByProperties;
 import consulo.disposer.Disposable;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.ui.CheckBox;
 import consulo.ui.Component;
 import consulo.ui.annotation.RequiredUIAccess;
@@ -22,7 +22,7 @@ public class HbFoldingConfigurable extends SimpleConfigurableByProperties implem
                                    @Nonnull Disposable disposable) {
     VerticalLayout root = VerticalLayout.create();
 
-    CheckBox collapseBlocksBox = CheckBox.create(HbBundle.message("hb.pages.folding.auto.collapse.blocks"));
+    CheckBox collapseBlocksBox = CheckBox.create(HbLocalize.hbPagesFoldingAutoCollapseBlocks());
     root.add(collapseBlocksBox);
     propertyBuilder.add(collapseBlocksBox, HbConfig::isAutoCollapseBlocksEnabled, HbConfig::setAutoCollapseBlocks);
     return root;
@@ -43,6 +43,6 @@ public class HbFoldingConfigurable extends SimpleConfigurableByProperties implem
   @Nonnull
   @Override
   public String getDisplayName() {
-    return HbBundle.message("hb.pages.options.title");
+    return HbLocalize.hbPagesOptionsTitle().get();
   }
 }
