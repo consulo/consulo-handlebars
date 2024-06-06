@@ -103,10 +103,7 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
         }
       }
     });
-    root.add(LabeledBuilder.sided(
-      LocalizeValue.localizeTODO(HbLocalize.hbPageOptionsCommenterLanguage().get()),
-      commentLanguageBox
-    ));
+    root.add(LabeledBuilder.sided(HbLocalize.hbPageOptionsCommenterLanguage(), commentLanguageBox));
     propertyBuilder.add(commentLanguageBox, HbConfig::getCommenterLanguageID, HbConfig::setCommenterLanguageID);
 
     return root;
