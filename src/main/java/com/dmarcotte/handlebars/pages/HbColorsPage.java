@@ -1,13 +1,13 @@
 package com.dmarcotte.handlebars.pages;
 
-import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.HbHighlighter;
 import consulo.annotation.component.ExtensionImpl;
 import consulo.colorScheme.TextAttributesKey;
 import consulo.colorScheme.setting.AttributesDescriptor;
-import consulo.colorScheme.setting.ColorDescriptor;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.editor.colorScheme.setting.ColorSettingsPage;
 import consulo.language.editor.highlight.SyntaxHighlighter;
+import consulo.localize.LocalizeValue;
 
 import javax.annotation.Nonnull;
 import java.util.Map;
@@ -23,14 +23,14 @@ public class HbColorsPage implements ColorSettingsPage {
     TextAttributesKey[] keys = textAttributesKeys.toArray(new TextAttributesKey[textAttributesKeys.size()]);
     for (int i = 0; i < keys.length; i++) {
       TextAttributesKey key = keys[i];
-      String name = HbHighlighter.DISPLAY_NAMES.get(key).getFirst();
+      LocalizeValue name = HbHighlighter.DISPLAY_NAMES.get(key).getFirst();
       ATTRS[i] = new AttributesDescriptor(name, key);
     }
   }
 
   @Nonnull
   public String getDisplayName() {
-    return HbBundle.message("hb.files.file.type.description");
+    return HbLocalize.hbFilesFileTypeDescription().get();
   }
 
   @Nonnull

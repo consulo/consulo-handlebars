@@ -5,10 +5,12 @@ import com.dmarcotte.handlebars.parsing._HbLexer;
 import consulo.codeEditor.DefaultLanguageHighlighterColors;
 import consulo.colorScheme.TextAttributes;
 import consulo.colorScheme.TextAttributesKey;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.ast.IElementType;
 import consulo.language.editor.annotation.HighlightSeverity;
 import consulo.language.editor.highlight.SyntaxHighlighterBase;
 import consulo.language.lexer.Lexer;
+import consulo.localize.LocalizeValue;
 import consulo.util.lang.Pair;
 
 import javax.annotation.Nonnull;
@@ -74,8 +76,8 @@ public class HbHighlighter extends SyntaxHighlighterBase {
   );
 
   static {
-    keys1 = new HashMap<IElementType, TextAttributesKey>();
-    keys2 = new HashMap<IElementType, TextAttributesKey>();
+    keys1 = new HashMap<>();
+    keys2 = new HashMap<>();
 
     keys1.put(HbTokenTypes.OPEN, MUSTACHES);
     keys1.put(HbTokenTypes.OPEN_BLOCK, MUSTACHES);
@@ -104,20 +106,17 @@ public class HbHighlighter extends SyntaxHighlighterBase {
     return pack(keys1.get(tokenType), keys2.get(tokenType));
   }
 
-  public static final Map<TextAttributesKey, Pair<String, HighlightSeverity>> DISPLAY_NAMES
-    = new LinkedHashMap<TextAttributesKey, Pair<String, HighlightSeverity>>();
+  public static final Map<TextAttributesKey, Pair<LocalizeValue, HighlightSeverity>> DISPLAY_NAMES = new LinkedHashMap<>();
 
   static {
-    DISPLAY_NAMES.put(MUSTACHES, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.mustaches.key"), null));
-    DISPLAY_NAMES
-      .put(IDENTIFIERS, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.identifiers.key"), null));
-    DISPLAY_NAMES.put(COMMENTS, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.comments.key"), null));
-    DISPLAY_NAMES.put(OPERATORS, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.operators.key"), null));
-    DISPLAY_NAMES.put(VALUES, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.values.key"), null));
-    DISPLAY_NAMES.put(STRINGS, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.strings.key"), null));
-    DISPLAY_NAMES
-      .put(DATA_PREFIX, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.data.prefix.key"), null));
-    DISPLAY_NAMES.put(DATA, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.data.key"), null));
-    DISPLAY_NAMES.put(ESCAPE, new Pair<String, HighlightSeverity>(HbBundle.message("hb.page.colors.descriptor.escape.key"), null));
+    DISPLAY_NAMES.put(MUSTACHES, new Pair<>(HbLocalize.hbPageColorsDescriptorMustachesKey(), null));
+    DISPLAY_NAMES.put(IDENTIFIERS, new Pair<>(HbLocalize.hbPageColorsDescriptorIdentifiersKey(), null));
+    DISPLAY_NAMES.put(COMMENTS, new Pair<>(HbLocalize.hbPageColorsDescriptorCommentsKey(), null));
+    DISPLAY_NAMES.put(OPERATORS, new Pair<>(HbLocalize.hbPageColorsDescriptorOperatorsKey(), null));
+    DISPLAY_NAMES.put(VALUES, new Pair<>(HbLocalize.hbPageColorsDescriptorValuesKey(), null));
+    DISPLAY_NAMES.put(STRINGS, new Pair<>(HbLocalize.hbPageColorsDescriptorStringsKey(), null));
+    DISPLAY_NAMES.put(DATA_PREFIX, new Pair<>(HbLocalize.hbPageColorsDescriptorDataPrefixKey(), null));
+    DISPLAY_NAMES.put(DATA, new Pair<>(HbLocalize.hbPageColorsDescriptorDataKey(), null));
+    DISPLAY_NAMES.put(ESCAPE, new Pair<>(HbLocalize.hbPageColorsDescriptorEscapeKey(), null));
   }
 }
