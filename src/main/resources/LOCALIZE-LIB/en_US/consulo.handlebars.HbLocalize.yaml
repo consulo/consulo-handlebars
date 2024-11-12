@@ -37,17 +37,17 @@ hb.parsing.element.expected.white_space:
 hb.parsing.element.expected.comment:
   text: Expected a Comment
 hb.parsing.element.expected.open:
-  text: Expected Open "{{"
+  text: Expected Open '{{'
 hb.parsing.element.expected.open_block:
-  text: Expected Open Block "{{#"
+  text: Expected Open Block '{{#'
 hb.parsing.element.expected.open_partial:
-  text: Expected Open Partial "{{>"
+  text: Expected Open Partial '{{>'
 hb.parsing.element.expected.open_end_block:
-  text: Expected Open End Block "{{/"
+  text: Expected Open End Block '{{/'
 hb.parsing.element.expected.open_inverse:
-  text: Expected Open Inverse "{{^"
+  text: Expected Open Inverse '{{^'
 hb.parsing.element.expected.open_unescaped:
-  text: Expected Open Unescaped "{{{"
+  text: Expected Open Unescaped '{{{'
 hb.parsing.element.expected.equals:
   text: Expected Equals "="
 hb.parsing.element.expected.id:
