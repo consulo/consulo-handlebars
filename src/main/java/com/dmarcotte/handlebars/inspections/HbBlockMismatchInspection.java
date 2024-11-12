@@ -1,9 +1,9 @@
 package com.dmarcotte.handlebars.inspections;
 
-import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.psi.HbCloseBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.dmarcotte.handlebars.psi.HbPath;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.editor.annotation.Annotation;
 import consulo.language.editor.annotation.AnnotationHolder;
 import consulo.language.editor.annotation.Annotator;
@@ -29,22 +29,26 @@ public class HbBlockMismatchInspection implements Annotator {
         String openBlockName = openBlockMainPath.getName();
         String closeBlockName = closeBlockMainPath.getName();
         if (!openBlockName.equals(closeBlockName)) {
-          Annotation openBlockAnnotation
-            = holder.createErrorAnnotation(openBlockMainPath,
-                                           HbBundle.message("hb.block.mismatch.inspection.open.block", openBlockName, closeBlockName));
+          Annotation openBlockAnnotation = holder.createErrorAnnotation(
+            openBlockMainPath,
+            HbLocalize.hbBlockMismatchInspectionOpenBlock(openBlockName, closeBlockName).get()
+          );
           openBlockAnnotation.registerFix(new HbBlockMismatchFix(closeBlockName, openBlockName, true));
           openBlockAnnotation.registerFix(new HbBlockMismatchFix(openBlockName, closeBlockName, false));
 
-          Annotation closeBlockAnnotation
-            = holder.createErrorAnnotation(closeBlockMainPath,
-                                           HbBundle.message("hb.block.mismatch.inspection.close.block", openBlockName, closeBlockName));
+          Annotation closeBlockAnnotation = holder.createErrorAnnotation(
+            closeBlockMainPath,
+            HbLocalize.hbBlockMismatchInspectionCloseBlock(openBlockName, closeBlockName).get()
+          );
           closeBlockAnnotation.registerFix(new HbBlockMismatchFix(openBlockName, closeBlockName, false));
           closeBlockAnnotation.registerFix(new HbBlockMismatchFix(closeBlockName, openBlockName, true));
         }
       }
       else {
-        holder.createErrorAnnotation(openBlockMainPath,
-                                     HbBundle.message("hb.block.mismatch.inspection.missing.end.block", openBlockMustache.getName()));
+        holder.createErrorAnnotation(
+          openBlockMainPath,
+          HbLocalize.hbBlockMismatchInspectionMissingEndBlock(openBlockMustache.getName()).get()
+        );
       }
     }
 
@@ -56,8 +60,10 @@ public class HbBlockMismatchInspection implements Annotator {
         if (closeBlockMainPath == null) {
           return;
         }
-        holder.createErrorAnnotation(closeBlockMainPath,
-                                     HbBundle.message("hb.block.mismatch.inspection.missing.start.block", closeBlockMustache.getName()));
+        holder.createErrorAnnotation(
+          closeBlockMainPath,
+          HbLocalize.hbBlockMismatchInspectionMissingStartBlock(closeBlockMustache.getName()).get()
+        );
       }
     }
   }

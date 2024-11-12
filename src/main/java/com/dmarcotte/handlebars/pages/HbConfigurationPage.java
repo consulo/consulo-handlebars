@@ -8,6 +8,7 @@ import consulo.configurable.ApplicationConfigurable;
 import consulo.configurable.SearchableConfigurable;
 import consulo.configurable.SimpleConfigurableByProperties;
 import consulo.disposer.Disposable;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.Language;
 import consulo.language.file.LanguageFileType;
 import consulo.language.template.TemplateDataLanguageMappings;
@@ -44,7 +45,7 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
   @Nonnull
   @Override
   public String getDisplayName() {
-    return HbBundle.message("hb.pages.options.title");
+    return HbLocalize.hbPagesOptionsTitle().get();
   }
 
   @RequiredUIAccess
@@ -54,12 +55,12 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
                                    @Nonnull Disposable disposable) {
     VerticalLayout root = VerticalLayout.create();
 
-    CheckBox autoInsertCloseTagBox = CheckBox.create(HbBundle.message("hb.pages.options.generate.closing.tag"));
+    CheckBox autoInsertCloseTagBox = CheckBox.create(HbLocalize.hbPagesOptionsGenerateClosingTag());
     root.add(autoInsertCloseTagBox);
     propertyBuilder.add(autoInsertCloseTagBox, HbConfig::isAutoGenerateCloseTagEnabled, HbConfig::setAutoGenerateCloseTagEnabled);
 
 
-    CheckBox enableFormatterBox = CheckBox.create(HbBundle.message("hb.pages.options.formatter"));
+    CheckBox enableFormatterBox = CheckBox.create(HbLocalize.hbPagesOptionsFormatter());
     root.add(enableFormatterBox);
     propertyBuilder.add(enableFormatterBox, HbConfig::isFormattingEnabled, HbConfig::setFormattingEnabled);
 
@@ -102,7 +103,7 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
         }
       }
     });
-    root.add(LabeledBuilder.sided(LocalizeValue.localizeTODO(HbBundle.message("hb.page.options.commenter.language")), commentLanguageBox));
+    root.add(LabeledBuilder.sided(HbLocalize.hbPageOptionsCommenterLanguage(), commentLanguageBox));
     propertyBuilder.add(commentLanguageBox, HbConfig::getCommenterLanguageID, HbConfig::setCommenterLanguageID);
 
     return root;

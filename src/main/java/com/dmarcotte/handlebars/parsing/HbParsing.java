@@ -1,7 +1,7 @@
 package com.dmarcotte.handlebars.parsing;
 
-import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.exception.ShouldNotHappenException;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.ast.IElementType;
 import consulo.language.ast.TokenSet;
 import consulo.language.parser.PsiBuilder;
@@ -49,7 +49,7 @@ class HbParsing {
         // try and resume parsing to avoid an infinite loop
         PsiBuilder.Marker problemMark = builder.mark();
         builder.advanceLexer();
-        problemMark.error(HbBundle.message("hb.parsing.invalid"));
+        problemMark.error(HbLocalize.hbParsingInvalid());
       }
 
       parse();
@@ -182,7 +182,7 @@ class HbParsing {
     if (tokenType == UNCLOSED_COMMENT) {
       PsiBuilder.Marker unclosedCommentMarker = builder.mark();
       parseLeafToken(builder, UNCLOSED_COMMENT);
-      unclosedCommentMarker.error(HbBundle.message("hb.parsing.comment.unclosed"));
+      unclosedCommentMarker.error(HbLocalize.hbParsingCommentUnclosed());
       return true;
     }
 
@@ -391,7 +391,7 @@ class HbParsing {
         return true;
       }
       else {
-        inMustacheMarker.error(HbBundle.message("hb.parsing.expected.path.or.data"));
+        inMustacheMarker.error(HbLocalize.hbParsingExpectedPathOrData());
         return false;
       }
     }
@@ -443,7 +443,7 @@ class HbParsing {
     PsiBuilder.Marker paramsMarker = builder.mark();
 
     if (!parseParam(builder)) {
-      paramsMarker.error(HbBundle.message("hb.parsing.expected.parameter"));
+      paramsMarker.error(HbLocalize.hbParsingExpectedParameter());
       return false;
     }
 
@@ -520,7 +520,7 @@ class HbParsing {
       dataMarker.rollbackTo();
     }
 
-    paramMarker.error(HbBundle.message("hb.parsing.expected.parameter"));
+    paramMarker.error(HbLocalize.hbParsingExpectedParameter());
     return false;
   }
 
@@ -543,7 +543,7 @@ class HbParsing {
     PsiBuilder.Marker hashSegmentsMarker = builder.mark();
 
     if (!parseHashSegment(builder)) {
-      hashSegmentsMarker.error(HbBundle.message("hb.parsing.expected.hash"));
+      hashSegmentsMarker.error(HbLocalize.hbParsingExpectedHash());
       return false;
     }
 
@@ -735,7 +735,7 @@ class HbParsing {
       unexpectedTokensMarker.error(((HbElementType)expectedToken).parseExpectedMessage());
     }
     else {
-      unexpectedTokensMarker.error(HbBundle.message("hb.parsing.element.expected.invalid"));
+      unexpectedTokensMarker.error(HbLocalize.hbParsingElementExpectedInvalid());
     }
   }
 

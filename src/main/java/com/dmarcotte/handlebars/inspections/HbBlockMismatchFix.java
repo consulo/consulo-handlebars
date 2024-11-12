@@ -1,12 +1,12 @@
 package com.dmarcotte.handlebars.inspections;
 
-import com.dmarcotte.handlebars.HbBundle;
 import com.dmarcotte.handlebars.psi.HbBlockMustache;
 import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import com.dmarcotte.handlebars.psi.HbPath;
 import consulo.codeEditor.Editor;
 import consulo.document.Document;
 import consulo.document.util.TextRange;
+import consulo.handlebars.localize.HbLocalize;
 import consulo.language.editor.FileModificationService;
 import consulo.language.editor.intention.SyntheticIntentionAction;
 import consulo.language.psi.PsiDocumentManager;
@@ -91,7 +91,7 @@ class HbBlockMismatchFix implements SyntheticIntentionAction {
 
   private String getName() {
     return myUpdateOpenMustache
-      ? HbBundle.message("hb.block.mismatch.intention.rename.open", myOriginalName, myCorrectedName)
-      : HbBundle.message("hb.block.mismatch.intention.rename.close", myOriginalName, myCorrectedName);
+      ? HbLocalize.hbBlockMismatchIntentionRenameOpen(myOriginalName, myCorrectedName).get()
+      : HbLocalize.hbBlockMismatchIntentionRenameClose(myOriginalName, myCorrectedName).get();
   }
 }
