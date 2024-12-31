@@ -7,7 +7,7 @@ import consulo.language.impl.psi.PsiFileBase;
 import consulo.language.psi.PsiFileEx;
 import consulo.virtualFileSystem.fileType.FileType;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbPsiFile extends PsiFileBase implements PsiFileEx {
 

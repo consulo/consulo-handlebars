@@ -2,7 +2,7 @@ package com.dmarcotte.handlebars.config;
 
 import consulo.xml.lang.html.HTMLLanguage;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Formalizes the properties which we will persist using {@link consulo.application.ApplicationPropertiesComponent}

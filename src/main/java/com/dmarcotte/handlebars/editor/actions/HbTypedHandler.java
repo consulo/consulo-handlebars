@@ -20,7 +20,7 @@ import consulo.language.psi.util.PsiTreeUtil;
 import consulo.project.Project;
 import consulo.util.lang.function.Condition;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 /**
  * Handler for custom plugin actions on chars typed by the user.  See {@link HbEnterHandler} for custom actions

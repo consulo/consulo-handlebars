@@ -3,7 +3,7 @@ package com.dmarcotte.handlebars.config;
 import consulo.application.ApplicationPropertiesComponent;
 import consulo.language.Language;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import static com.dmarcotte.handlebars.config.Property.*;
 

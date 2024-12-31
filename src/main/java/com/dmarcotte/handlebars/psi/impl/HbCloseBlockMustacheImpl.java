@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.psi.HbOpenBlockMustache;
 import consulo.language.ast.ASTNode;
 import consulo.language.psi.PsiElement;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbCloseBlockMustacheImpl extends HbBlockMustacheImpl implements HbCloseBlockMustache {
   public HbCloseBlockMustacheImpl(@Nonnull ASTNode astNode) {

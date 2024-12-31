@@ -4,8 +4,8 @@ import com.dmarcotte.handlebars.psi.HbPsiFile;
 import consulo.fileEditor.structureView.StructureViewTreeElement;
 import consulo.language.editor.structureView.PsiTreeElementBase;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.util.Collection;
 
 class HbTreeElementFile extends PsiTreeElementBase<HbPsiFile> {

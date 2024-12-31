@@ -6,7 +6,7 @@ import consulo.language.impl.psi.ASTWrapperPsiElement;
 import consulo.navigation.ItemPresentation;
 import consulo.navigation.ItemPresentationProvider;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbPsiElementImpl extends ASTWrapperPsiElement implements HbPsiElement {
   public HbPsiElementImpl(@Nonnull ASTNode astNode) {

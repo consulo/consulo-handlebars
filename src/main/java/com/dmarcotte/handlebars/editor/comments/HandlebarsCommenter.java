@@ -4,8 +4,8 @@ import com.dmarcotte.handlebars.HbLanguage;
 import consulo.language.Commenter;
 import consulo.language.Language;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 /**
  * Commenter for native Handlebars comments: <pre>{{!-- comment --}}</pre>

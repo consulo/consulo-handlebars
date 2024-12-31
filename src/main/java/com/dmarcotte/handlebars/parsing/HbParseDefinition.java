@@ -16,7 +16,7 @@ import consulo.language.psi.PsiElement;
 import consulo.language.psi.PsiFile;
 import consulo.language.version.LanguageVersion;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 @ExtensionImpl
 public class HbParseDefinition implements ParserDefinition {

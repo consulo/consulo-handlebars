@@ -1,6 +1,6 @@
 package com.dmarcotte.handlebars.editor.actions;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 import com.dmarcotte.handlebars.file.HbFileType;
 import consulo.ide.impl.idea.codeInsight.generation.CommentByBlockCommentHandler;

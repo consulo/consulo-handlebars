@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.psi.HbSimpleInverse;
 import consulo.language.ast.ASTNode;
 import consulo.language.ast.TokenSet;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbSimpleInverseImpl extends HbMustacheImpl implements HbSimpleInverse {
   public HbSimpleInverseImpl(@Nonnull ASTNode astNode) {

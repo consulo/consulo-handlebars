@@ -18,7 +18,7 @@ import consulo.language.util.IncorrectOperationException;
 import consulo.project.Project;
 import consulo.util.lang.function.Condition;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 class HbBlockMismatchFix implements SyntheticIntentionAction {
   private final boolean myUpdateOpenMustache;

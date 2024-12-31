@@ -14,7 +14,7 @@ import consulo.language.template.ConfigurableTemplateLanguageFileViewProvider;
 import consulo.language.template.TemplateDataLanguageMappings;
 import consulo.virtualFileSystem.VirtualFile;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import java.util.Set;
 
 public class HbFileViewProvider extends MultiplePsiFilesPerDocumentFileViewProvider

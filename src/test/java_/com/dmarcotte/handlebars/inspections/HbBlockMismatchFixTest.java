@@ -5,7 +5,7 @@ import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCa
 import consulo.language.editor.WriteCommandAction;
 import consulo.language.editor.intention.IntentionAction;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public abstract class HbBlockMismatchFixTest extends LightPlatformCodeInsightFixtureTestCase {
   public HbBlockMismatchFixTest() {

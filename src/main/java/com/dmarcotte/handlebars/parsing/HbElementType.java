@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.HbLanguage;
 import consulo.language.ast.IElementType;
 import org.jetbrains.annotations.NonNls;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 class HbElementType extends IElementType {
   private final String _parseExpectedMessageKey;

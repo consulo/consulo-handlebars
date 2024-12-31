@@ -5,7 +5,7 @@ import com.dmarcotte.handlebars.psi.HbPartialName;
 import consulo.language.ast.ASTNode;
 import consulo.language.psi.util.PsiTreeUtil;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbPartialImpl extends HbMustacheImpl implements HbPartial {
   public HbPartialImpl(@Nonnull ASTNode astNode) {

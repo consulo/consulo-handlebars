@@ -5,8 +5,8 @@ import com.dmarcotte.handlebars.psi.HbPath;
 import consulo.language.ast.ASTNode;
 import consulo.language.psi.util.PsiTreeUtil;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 abstract class HbBlockMustacheImpl extends HbPsiElementImpl implements HbBlockMustache {
   protected HbBlockMustacheImpl(@Nonnull ASTNode astNode) {

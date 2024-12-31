@@ -7,7 +7,7 @@ import com.dmarcotte.handlebars.psi.HbSimpleMustache;
 import consulo.language.ast.ASTNode;
 import consulo.language.psi.PsiElement;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 public class HbSimpleMustacheImpl extends HbMustacheImpl implements HbSimpleMustache {
   public HbSimpleMustacheImpl(@Nonnull ASTNode astNode) {

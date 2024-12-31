@@ -6,7 +6,7 @@ import com.dmarcotte.handlebars.psi.HbPsiFile;
 import consulo.fileEditor.structureView.StructureViewTreeElement;
 import consulo.language.editor.structureView.TextEditorBasedStructureViewModel;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 class HbStructureViewModel extends TextEditorBasedStructureViewModel {
 

@@ -6,8 +6,8 @@ import consulo.language.ast.IElementType;
 import consulo.language.lexer.Lexer;
 import consulo.xml.lang.HtmlScriptContentProvider;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 @ExtensionImpl
 public class HbScriptContentProvider implements HtmlScriptContentProvider {
