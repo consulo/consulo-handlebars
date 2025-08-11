@@ -29,8 +29,8 @@ public class HbColorsPage implements ColorSettingsPage {
   }
 
   @Nonnull
-  public String getDisplayName() {
-    return HbLocalize.hbFilesFileTypeDescription().get();
+  public LocalizeValue getDisplayName() {
+    return HbLocalize.hbFilesFileTypeDescription();
   }
 
   @Nonnull
@@ -54,9 +54,5 @@ public class HbColorsPage implements ColorSettingsPage {
       "{{@data}}\n" +
       "\\{{escaped}}\n"
       ;
-  }
-
-  public Map<String, TextAttributesKey> getAdditionalHighlightingTagToDescriptorMap() {
-    return null;
   }
 }

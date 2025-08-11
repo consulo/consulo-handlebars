@@ -44,8 +44,8 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
 
   @Nonnull
   @Override
-  public String getDisplayName() {
-    return HbLocalize.hbPagesOptionsTitle().get();
+  public LocalizeValue getDisplayName() {
+    return HbLocalize.hbPagesOptionsTitle();
   }
 
   @RequiredUIAccess

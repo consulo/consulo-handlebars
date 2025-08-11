@@ -5,6 +5,7 @@ import consulo.configurable.ApplicationConfigurable;
 import consulo.configurable.SimpleConfigurableByProperties;
 import consulo.disposer.Disposable;
 import consulo.handlebars.localize.HbLocalize;
+import consulo.localize.LocalizeValue;
 import consulo.ui.CheckBox;
 import consulo.ui.Component;
 import consulo.ui.annotation.RequiredUIAccess;
@@ -42,7 +43,7 @@ public class HbFoldingConfigurable extends SimpleConfigurableByProperties implem
 
   @Nonnull
   @Override
-  public String getDisplayName() {
-    return HbLocalize.hbPagesOptionsTitle().get();
+  public LocalizeValue getDisplayName() {
+    return HbLocalize.hbPagesOptionsTitle();
   }
 }
