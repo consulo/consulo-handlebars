@@ -23,7 +23,7 @@ public class HbStructureViewFactory implements PsiStructureViewFactory {
       @Nonnull
       @Override
       public StructureViewModel createStructureViewModel(Editor editor) {
-        return new HbStructureViewModel((HbPsiFile)psiFile);
+        return new HbStructureViewModel(editor, (HbPsiFile)psiFile);
       }
     };
   }
