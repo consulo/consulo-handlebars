@@ -1,7 +1,6 @@
 package com.dmarcotte.handlebars.config;
 
-import consulo.xml.lang.html.HTMLLanguage;
-
+import consulo.html.language.HTMLLanguage;
 import jakarta.annotation.Nonnull;
 
 /**

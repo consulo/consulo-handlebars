@@ -1,10 +1,10 @@
 package com.dmarcotte.handlebars;
 
 import consulo.annotation.component.ExtensionImpl;
+import consulo.html.language.HtmlScriptContentProvider;
 import consulo.language.Language;
 import consulo.language.ast.IElementType;
 import consulo.language.lexer.Lexer;
-import consulo.xml.lang.HtmlScriptContentProvider;
 
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.Nullable;
