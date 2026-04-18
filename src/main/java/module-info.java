@@ -3,11 +3,32 @@
  * @since 12/01/2023
  */
 module com.dmarcotte.handlebars {
-    requires consulo.ide.api;
+    requires consulo.application.api;
+    requires consulo.base.icon.library;
+    requires consulo.code.editor.api;
+    requires consulo.color.scheme.api;
+    requires consulo.component.api;
+    requires consulo.configurable.api;
+    requires consulo.datacontext.api;
+    requires consulo.disposer.api;
+    requires consulo.document.api;
+    requires consulo.file.editor.api;
+    requires consulo.language.api;
+    requires consulo.language.code.style.api;
+    requires consulo.language.editor.api;
+    requires consulo.language.impl;
+    requires consulo.localize.api;
+    requires consulo.navigation.api;
+    requires consulo.project.api;
+    requires consulo.ui.api;
+    requires consulo.util.collection;
+    requires consulo.util.lang;
+    requires consulo.virtual.file.system.api;
+
     requires com.intellij.xml.api;
     requires com.intellij.xml.html.api;
 
-    // TODO remove after 
+    // TODO remove after xml extract all api
     requires com.intellij.xml;
 
     exports com.dmarcotte.handlebars;
