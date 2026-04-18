@@ -1,27 +1,27 @@
 package com.dmarcotte.handlebars.format;
 
-import java.io.File;
-
-import consulo.document.Document;
-import consulo.undoRedo.CommandProcessor;
-import consulo.util.lang.StringUtil;
-import consulo.virtualFileSystem.VirtualFile;
-import org.jetbrains.annotations.NonNls;
 import com.dmarcotte.handlebars.HbLanguage;
 import com.dmarcotte.handlebars.util.HbTestUtils;
+import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
 import consulo.application.ApplicationManager;
 import consulo.codeEditor.EditorFactory;
+import consulo.document.Document;
 import consulo.document.impl.DocumentImpl;
-import consulo.language.file.LanguageFileType;
 import consulo.document.util.TextRange;
-import consulo.ide.impl.idea.openapi.util.io.FileUtil;
+import consulo.language.codeStyle.CodeStyleManager;
+import consulo.language.file.LanguageFileType;
 import consulo.language.psi.PsiDocumentManager;
 import consulo.language.psi.PsiFile;
 import consulo.language.psi.PsiManager;
-import consulo.language.codeStyle.CodeStyleManager;
 import consulo.language.template.TemplateDataLanguageMappings;
-import com.intellij.testFramework.fixtures.LightPlatformCodeInsightFixtureTestCase;
+import consulo.undoRedo.CommandProcessor;
+import consulo.util.io.FileUtil;
 import consulo.util.lang.IncorrectOperationException;
+import consulo.util.lang.StringUtil;
+import consulo.virtualFileSystem.VirtualFile;
+import org.jetbrains.annotations.NonNls;
+
+import java.io.File;
 
 /**
  * Base class for Handlebars formatter tests.  Based on com.intellij.psi.formatter.java.AbstractJavaFormatterTest.
