@@ -79,8 +79,8 @@ public class HbConfigurationPage extends SimpleConfigurableByProperties implemen
         }
 
         ComboBox<String> commentLanguageBox = ComboBox.create(languageStrings);
-        commentLanguageBox.setRenderer((presentation, index, langId) -> {
-            System.out.println(langId);
+        commentLanguageBox.setRender((presentation, item) -> {
+            String langId = item.getValue();
             if (langId == null) {
                 presentation.append("");
             }
